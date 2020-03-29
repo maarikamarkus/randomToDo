@@ -2,22 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Peaklass {
-    ArrayList<Tegevus> toDoList = new ArrayList<>();
-
-    void lisaToDoListi(String sisend) {
-        Tegevus uus = new Tegevus(sisend, false);
-        toDoList.add(uus);
-    }
-
-    void sisendiAnalüüs(String sisend) {
-        if (sisend.equals("1")) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Sisesta uus tegevus: ");
-            String tegevus = scanner.nextLine();
-            System.out.println("Sisestasid: " + sisend);
-            lisaToDoListi(tegevus);
-        }
-    }
 
     public static void main(String[] args) {
         System.out.println("randomToDo");
@@ -32,5 +16,14 @@ public class Peaklass {
         System.out.println("Vali tegevus: ");
         String sisend = scanner.nextLine();
         System.out.println("Sisestasid: " + sisend);
+
+        //kahtlane, aga kuidagi peab tegema mingi algse ArrayList<Tegevus>-e, et ToDoList isendit teha saada
+        Tegevus tegevus = new Tegevus(sisend, false);
+        ArrayList<Tegevus> tegevused = new ArrayList<>();
+        tegevused.add(tegevus);
+
+        ToDoList toDoList = new ToDoList(tegevused);
+        toDoList.lisaToDoListi(sisend);
+        toDoList.sisendiAnalüüs(sisend);
     }
 }
