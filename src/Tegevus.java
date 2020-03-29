@@ -1,6 +1,6 @@
 public class Tegevus {
-    String kirjeldus;
-    boolean tehtud;
+    private String kirjeldus;
+    private boolean tehtud;
 
     public Tegevus(String kirjeldus, boolean tehtud) {
         this.kirjeldus = kirjeldus;

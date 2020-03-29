@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class Peaklass {
 
+    static void sisendiAnalüüs(String sisend) {
+        // kutsuda välja sisendile vastav meetod
+    }
+
     public static void main(String[] args) {
         System.out.println("randomToDo");
         // võiksid olla tegevuse, aga prg ei tööta
