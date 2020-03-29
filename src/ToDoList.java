@@ -29,6 +29,12 @@ public class ToDoList {
             String tegevus = scanner.nextLine();
             System.out.println("Sisestasid: " + tegevus);
             lisaToDoListi(tegevus);
+        } else if (sisend.equals("2")) {
+            //
+        } else if (sisend.equals("3")) {
+            //
+        } else if (sisend.equals("4")) {
+            //
         }
         //if (sisend.equals("2") jne
     }

@@ -5,12 +5,14 @@ public class Peaklass {
 
     public static void main(String[] args) {
         System.out.println("randomToDo");
+        System.out.println();
         // võiksid olla tegevused, aga prg ei tööta
         System.out.println("uus tegevus: sisesta 1 ja vajuta ENTER");
         System.out.println("välju tegevuste lisamisest: vajuta ENTER");
         System.out.println("kuva to-do list: sisesta 2 ja vajuta ENTER");
         System.out.println("märgi tegevus tehtuks: sisesta 3 ja vajuta ENTER");
         System.out.println("kustuta tegevus: sisesta 4 ja vajuta ENTER");
+        System.out.println();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Vali tegevus: ");
