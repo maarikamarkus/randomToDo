@@ -2,17 +2,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Peaklass {
-    static void lisaToDoListi(String sisend, ArrayList<Tegevus> toDoList) {
+    static void lisaToDoListi(String sisend) {
         Tegevus uus = new Tegevus(sisend, false);
-        toDoList.add(uus);
+        //toDoList.add(uus);
     }
 
     static void sisendiAnalüüs(String sisend) {
-        // kutsuda välja sisendile vastav meetod
-
-        // nt
-        // if (sisend == x )
-        //     lisaToDoListi(sisend);
+        if (sisend.equals("1")) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Sisesta uus tegevus: ");
+            String tegevus = scanner.nextLine();
+            System.out.println("Sisestasid: " + sisend);
+            lisaToDoListi(tegevus);
+        }
     }
 
     public static void main(String[] args) {
@@ -25,7 +27,7 @@ public class Peaklass {
         System.out.println("kustuta tegevus: sisesta 4 ja vajuta ENTER");
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Sisesta uus tegevus: ");
+        System.out.println("Vali tegevus: ");
         String sisend = scanner.nextLine();
         System.out.println("Sisestasid: " + sisend);
     }
