@@ -32,5 +32,6 @@ public class Peaklass {
         System.out.println("Vali tegevus: ");
         String sisend = scanner.nextLine();
         System.out.println("Sisestasid: " + sisend);
+        // sisendiAnalüüs(sisend);
     }
 }
