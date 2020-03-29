@@ -9,7 +9,7 @@ public class Peaklass {
         toDoList.add(uus);
     }
 
-    static void sisendiAnalüüs(String sisend) {
+    void sisendiAnalüüs(String sisend) {
         if (sisend.equals("1")) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Sisesta uus tegevus: ");
