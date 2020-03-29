@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class ToDoList {
 
-    ArrayList<Tegevus> toDoList;
+    private ArrayList<Tegevus> toDoList;
 
     public ToDoList(ArrayList<Tegevus> toDoList) {
         this.toDoList = toDoList;
@@ -27,7 +27,7 @@ public class ToDoList {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Sisesta uus tegevus: ");
             String tegevus = scanner.nextLine();
-            System.out.println("Sisestasid: " + sisend);
+            System.out.println("Sisestasid: " + tegevus);
             lisaToDoListi(tegevus);
         }
         //if (sisend.equals("2") jne
