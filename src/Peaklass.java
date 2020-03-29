@@ -2,9 +2,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Peaklass {
-    static void lisaToDoListi(String sisend) {
+    ArrayList<Tegevus> toDoList = new ArrayList<>();
+
+    void lisaToDoListi(String sisend) {
         Tegevus uus = new Tegevus(sisend, false);
-        //toDoList.add(uus);
+        toDoList.add(uus);
     }
 
     static void sisendiAnalüüs(String sisend) {
