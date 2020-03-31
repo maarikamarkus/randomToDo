@@ -25,12 +25,13 @@ public class Peaklass {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Vali tegevus: ");
             String sisend = scanner.nextLine();
-            if (sisend == "") {
-                System.out.println("Väljusid tegevuste lisamisest.");
+            if (sisend.equals("")) {
+                System.out.println("Programm lõpetas töö");
                 //return;
                 break;
-            } else
+            } else {
                 System.out.println("Sisestasid: " + sisend);
+            }
 
             isend.sisendiAnalüüs(sisend);
         }

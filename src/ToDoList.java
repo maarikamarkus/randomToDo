@@ -9,9 +9,23 @@ public class ToDoList {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sisesta uus tegevus: ");
         String tegevus = scanner.nextLine();
-        System.out.println("Sisestasid: " + tegevus);
-        Tegevus lisada = new Tegevus(tegevus, false);
-        toDoList.add(lisada);
+        /*if (!tegevus.equals("")) {
+            System.out.println("Sisestasid: " + tegevus);
+            Tegevus lisada = new Tegevus(tegevus, false);
+            toDoList.add(lisada);
+        } else {
+            System.out.println("Lõpetasid tegevuste lisamise.");
+        }*/
+        while (!tegevus.equals("")) {
+            System.out.println("Sisestasid: " + tegevus);
+            Tegevus lisada = new Tegevus(tegevus, false);
+            toDoList.add(lisada);
+            System.out.println("Sisesta uus tegevus (lisamisest väljumiseks vajuta ENTER): ");
+            tegevus = scanner.nextLine();
+        }
+        System.out.println("Lõpetasid tegevuste lisamise.");
+        return;
+
     }
 
     private void kustutaTegevus(ArrayList<Tegevus> toDoList) {
@@ -62,9 +76,9 @@ public class ToDoList {
             System.out.println("Sisesta enne mõned tegevused listi.");
             return;
         } else {
-            Tegevus suvaline = toDoList.get((int) Math.random()*tegevusi);
+            Tegevus suvaline = toDoList.get((int) (Math.random()*tegevusi));
             System.out.print("Järgmisena tee: ");
-            System.out.println(suvaline);
+            System.out.println(suvaline.getKirjeldus());
         }
     }
 
