@@ -28,7 +28,7 @@ public class Peaklass {
             return;
         } else
             System.out.println("Sisestasid: " + sisend);
-        
+
         ToDoList isend = new ToDoList();
         isend.sisendiAnalüüs(sisend);
     }
