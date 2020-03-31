@@ -28,8 +28,8 @@ public class Peaklass {
             return;
         } else
             System.out.println("Sisestasid: " + sisend);
-
-        //staatilist isendit kutsutakse välja klassinime järgi, aga kuidas siis klassis olevat meetodit kasutada?
-        ToDoList.toDoList.sisendiAnalüüs(sisend);
+        
+        ToDoList isend = new ToDoList();
+        isend.sisendiAnalüüs(sisend);
     }
 }

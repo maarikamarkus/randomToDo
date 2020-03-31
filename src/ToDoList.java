@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class ToDoList {
 
-    static ArrayList<Tegevus> toDoList;
+    public static ArrayList<Tegevus> toDoList = new ArrayList<>();
 
     private void lisaToDoListi(ArrayList<Tegevus> toDoList) {
         Scanner scanner = new Scanner(System.in);
@@ -56,10 +56,11 @@ public class ToDoList {
             toDoList.get(number-1).setTehtud(true);
     }
 
+    /*
     private void suvalineTegevus(ArrayList<Tegevus> toDoList) {
         return;
     }
-
+    */
     public void sisendiAnalüüs(String sisend) {
         switch (sisend) {
             case "1":
@@ -75,7 +76,7 @@ public class ToDoList {
                 tegevusTehtuks(toDoList);
                 break;
             case "5":
-                suvalineTegevus(toDoList);
+                //suvalineTegevus(toDoList);
                 break;
         }
     }
