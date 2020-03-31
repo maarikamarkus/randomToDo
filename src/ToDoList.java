@@ -17,7 +17,7 @@ public class ToDoList {
     private void kustutaTegevus(ArrayList<Tegevus> toDoList) {
         int i = 0;
         for (Tegevus tegevus : toDoList) {
-            System.out.println(i + ". sissekanne on " + tegevus);
+            System.out.println(i+1 + ". sissekanne on " + tegevus);
             i++;
         }
         System.out.println("Sisesta täisarvuna, mitmenda tegevuse kustutada tahad.");

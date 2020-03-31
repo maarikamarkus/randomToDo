@@ -20,16 +20,20 @@ public class Peaklass {
         System.out.println("vali suvaline tegevus, mida tegema hakata: sisesta 5 ja vajuta ENTER");
         System.out.println();
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Vali tegevus: ");
-        String sisend = scanner.nextLine();
-        if (sisend == "") {
-            System.out.println("Väljusid tegevuste lisamisest.");
-            return;
-        } else
-            System.out.println("Sisestasid: " + sisend);
-        
         ToDoList isend = new ToDoList();
-        isend.sisendiAnalüüs(sisend);
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Vali tegevus: ");
+            String sisend = scanner.nextLine();
+            if (sisend == "") {
+                System.out.println("Väljusid tegevuste lisamisest.");
+                //return;
+                break;
+            } else
+                System.out.println("Sisestasid: " + sisend);
+
+            isend.sisendiAnalüüs(sisend);
+        }
+
     }
 }
