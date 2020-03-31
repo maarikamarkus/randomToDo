@@ -23,7 +23,7 @@ public class Peaklass {
         ToDoList isend = new ToDoList();
         while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Vali tegevus: ");
+            System.out.println("Vali tegevus (väljumiseks vajuta ENTER): ");
             String sisend = scanner.nextLine();
             if (sisend.equals("")) {
                 System.out.println("Programm lõpetas töö");
