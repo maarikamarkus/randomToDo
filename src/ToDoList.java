@@ -66,11 +66,12 @@ public class ToDoList {
         System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
         Scanner scanner1 = new Scanner(System.in);
         String sisend1 = scanner1.nextLine();
-        if (sisend1.equals(""))
+        if (sisend1.equals("")) {
             System.out.println("Hea töö!");
-            toDoList.get(number-1).setTehtud(true);
-        else if (sisend1.equals("lõpeta"))
+            toDoList.get(number - 1).setTehtud(true);
+        } else if (sisend1.equals("lõpeta")) {
             return;
+        }
     }
 
     private void suvalineTegevus(ArrayList<Tegevus> toDoList) {
