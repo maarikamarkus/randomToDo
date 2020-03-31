@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class ToDoList {
 
-    private ArrayList<Tegevus> toDoList;
+    static ArrayList<Tegevus> toDoList;
 
     public ToDoList() {
         toDoList = new ArrayList<>();
@@ -35,15 +35,13 @@ public class ToDoList {
         System.out.println("Sisesta täisarvuna, mitmenda tegevuse kustutada tahad.");
         Scanner scanner = new Scanner(System.in);
         String sisend = scanner.nextLine();
-        Integer number = new Integer(sisend);
-        System.out.println("Soovid kustutada tegevuse: " + toDoList.get(number.intValue()-1));
+        int number = Integer.valueOf(sisend);
+        System.out.println("Soovid kustutada tegevuse: " + toDoList.get(number-1));
         System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
         Scanner scanner1 = new Scanner(System.in);
         String sisend1 = scanner1.nextLine();
         if (sisend1 == "")
-            toDoList.remove(number.intValue()-1);
-        else
-            return;
+            toDoList.remove(number-1);
     }
 
     private void kuvaList(ArrayList<Tegevus> toDoList) {
@@ -61,15 +59,13 @@ public class ToDoList {
         System.out.println("Sisesta täisarvuna, mitmenda tegevuse tehtuks muuta tahad.");
         Scanner scanner = new Scanner(System.in);
         String sisend = scanner.nextLine();
-        Integer number = new Integer(sisend);
-        System.out.println("Soovid tehtuks muuta tegevuse: " + toDoList.get(number.intValue()-1));
+        int number = Integer.valueOf(sisend);
+        System.out.println("Soovid tehtuks muuta tegevuse: " + toDoList.get(number-1));
         System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
         Scanner scanner1 = new Scanner(System.in);
         String sisend1 = scanner1.nextLine();
         if (sisend1 == "")
-            toDoList.get(number.intValue()-1).setTehtud(true);
-        else
-            return;
+            toDoList.get(number-1).setTehtud(true);
     }
 
     private void suvalineTegevus(ArrayList<Tegevus> toDoList) {
@@ -77,16 +73,22 @@ public class ToDoList {
     }
 
     public void sisendiAnalüüs(String sisend) {
-        if (sisend.equals("1")) {
-            lisaToDoListi(toDoList);
-        } else if (sisend.equals("2")) {
-            kustutaTegevus(toDoList);
-        } else if (sisend.equals("3")) {
-            kuvaList(toDoList);
-        } else if (sisend.equals("4")) {
-            tegevusTehtuks(toDoList);
-        } else if (sisend.equals("5")) {
-            suvalineTegevus(toDoList);
+        switch (sisend) {
+            case "1":
+                lisaToDoListi(toDoList);
+                break;
+            case "2":
+                kustutaTegevus(toDoList);
+                break;
+            case "3":
+                kuvaList(toDoList);
+                break;
+            case "4":
+                tegevusTehtuks(toDoList);
+                break;
+            case "5":
+                suvalineTegevus(toDoList);
+                break;
         }
     }
 
