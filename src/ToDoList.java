@@ -9,13 +9,7 @@ public class ToDoList {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sisesta uus tegevus: ");
         String tegevus = scanner.nextLine();
-        /*if (!tegevus.equals("")) {
-            System.out.println("Sisestasid: " + tegevus);
-            Tegevus lisada = new Tegevus(tegevus, false);
-            toDoList.add(lisada);
-        } else {
-            System.out.println("Lõpetasid tegevuste lisamise.");
-        }*/
+
         while (!tegevus.equals("")) {
             System.out.println("Sisestasid: " + tegevus);
             Tegevus lisada = new Tegevus(tegevus, false);
