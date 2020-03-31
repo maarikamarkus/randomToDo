@@ -31,9 +31,6 @@ public class Tegevus {
             tehtud = "+";
         else
             tehtud = "-";
-        return "Tegevus{"
-                + kirjeldus  +
-                ", [" + tehtud +
-                "]";
+        return kirjeldus  + ": " + tehtud + ";";
     }
 }
