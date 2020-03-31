@@ -55,7 +55,7 @@ public class ToDoList {
     private void tegevusTehtuks(ArrayList<Tegevus> toDoList) {
         int i = 0;
         for (Tegevus tegevus : toDoList) {
-            System.out.println(i + ". sissekanne on " + tegevus);
+            System.out.println(i+1 + ". sissekanne on " + tegevus);
             i++;
         }
         System.out.println("Sisesta täisarvuna, mitmenda tegevuse tehtuks muuta tahad.");
@@ -67,6 +67,7 @@ public class ToDoList {
         Scanner scanner1 = new Scanner(System.in);
         String sisend1 = scanner1.nextLine();
         if (sisend1.equals(""))
+            System.out.println("Hea töö!");
             toDoList.get(number-1).setTehtud(true);
         else if (sisend1.equals("lõpeta"))
             return;
