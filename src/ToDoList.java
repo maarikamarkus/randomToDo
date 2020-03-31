@@ -36,8 +36,14 @@ public class ToDoList {
         System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
         Scanner scanner1 = new Scanner(System.in);
         String sisend1 = scanner1.nextLine();
-        if (sisend1 == "")
+        if (sisend1.equals("")) {
+            System.out.println("Kustutati tegevus: " + toDoList.get(number-1).getKirjeldus());
             toDoList.remove(number-1);
+        } else if (sisend1.equals("lõpeta")) {
+            System.out.println("Ühtegi tegevust ei kustutatud.");
+            return;
+        }
+
     }
 
     private void kuvaList(ArrayList<Tegevus> toDoList) {
