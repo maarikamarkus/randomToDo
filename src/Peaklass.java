@@ -5,6 +5,9 @@ public class Peaklass {
 
     public static void main(String[] args) {
 
+        System.out.println();
+        System.out.println("*******************************************");
+        System.out.println();
         System.out.println("RandomToDo");
         System.out.println("Programm aitab kasutajal oma to-do listi hallata ja tegevustega alustada.");
         System.out.println();
@@ -26,7 +29,7 @@ public class Peaklass {
         } else
             System.out.println("Sisestasid: " + sisend);
 
-        ToDoList toDoList = new ToDoList();
-        toDoList.sisendiAnalüüs(sisend);
+        //staatilist isendit kutsutakse välja klassinime järgi, aga kuidas siis klassis olevat meetodit kasutada?
+        ToDoList.toDoList.sisendiAnalüüs(sisend);
     }
 }

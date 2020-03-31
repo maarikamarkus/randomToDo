@@ -5,18 +5,6 @@ public class ToDoList {
 
     static ArrayList<Tegevus> toDoList;
 
-    public ToDoList() {
-        toDoList = new ArrayList<>();
-    }
-
-    public ArrayList<Tegevus> getToDoList() {
-        return toDoList;
-    }
-
-    public void setToDoList(ArrayList<Tegevus> toDoList) {
-        this.toDoList = toDoList;
-    }
-
     private void lisaToDoListi(ArrayList<Tegevus> toDoList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sisesta uus tegevus: ");
