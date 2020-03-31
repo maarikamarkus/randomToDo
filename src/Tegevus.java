@@ -33,4 +33,5 @@ public class Tegevus {
             tehtud = "-";
         return kirjeldus  + ": " + tehtud + ";";
     }
+
 }
