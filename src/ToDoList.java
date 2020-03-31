@@ -56,11 +56,18 @@ public class ToDoList {
             toDoList.get(number-1).setTehtud(true);
     }
 
-    /*
     private void suvalineTegevus(ArrayList<Tegevus> toDoList) {
-        return;
+        int tegevusi = toDoList.size();
+        if (tegevusi == 0) {
+            System.out.println("Sisesta enne mõned tegevused listi.");
+            return;
+        } else {
+            Tegevus suvaline = toDoList.get((int) Math.random()*tegevusi);
+            System.out.print("Järgmisena tee: ");
+            System.out.println(suvaline);
+        }
     }
-    */
+
     public void sisendiAnalüüs(String sisend) {
         switch (sisend) {
             case "1":
@@ -76,7 +83,7 @@ public class ToDoList {
                 tegevusTehtuks(toDoList);
                 break;
             case "5":
-                //suvalineTegevus(toDoList);
+                suvalineTegevus(toDoList);
                 break;
         }
     }
