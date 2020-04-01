@@ -13,6 +13,10 @@ public class ToDoList {
         }
     }
 
+    private int tegevusiListis(ArrayList<Tegevus> toDoList) {
+        return toDoList.size();
+    }
+
     private void lisaToDoListi(ArrayList<Tegevus> toDoList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sisesta uus tegevus: ");
@@ -29,49 +33,77 @@ public class ToDoList {
     }
 
     private void kustutaTegevus(ArrayList<Tegevus> toDoList) {
-        kuvaSissekanded(toDoList);
-        System.out.println("Sisesta täisarvuna, mitmenda tegevuse kustutada tahad.");
-        Scanner scanner = new Scanner(System.in);
-        String sisend = scanner.nextLine();
-        int number = Integer.valueOf(sisend);
-        System.out.println("Soovid kustutada tegevuse: " + toDoList.get(number-1));
-        System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
-        Scanner scanner1 = new Scanner(System.in);
-        String sisend1 = scanner1.nextLine();
-        if (sisend1.equals("")) {
-            System.out.println("Kustutati tegevus: " + toDoList.get(number-1).getKirjeldus());
-            toDoList.remove(number-1);
-        } else if (sisend1.equals("lõpeta")) {
-            System.out.println("Ühtegi tegevust ei kustutatud.");
+        if (tegevusiListis(toDoList) == 0) {
+            System.out.println("Sul ei ole tegevusi, mida kustutada.");
+        } else {
+            kuvaSissekanded(toDoList);
+            System.out.println("Sisesta täisarvuna, mitmenda tegevuse kustutada tahad.");
+            Scanner scanner = new Scanner(System.in);
+            String sisend = scanner.nextLine();
+            int number = Integer.valueOf(sisend);
+            System.out.println("Soovid kustutada tegevuse: " + toDoList.get(number-1));
+            System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
+            Scanner scanner1 = new Scanner(System.in);
+            String sisend1 = scanner1.nextLine();
+            if (sisend1.equals("")) {
+                System.out.println("Kustutati tegevus: " + toDoList.get(number-1).getKirjeldus());
+                toDoList.remove(number-1);
+            } else if (sisend1.equals("lõpeta")) {
+                System.out.println("Ühtegi tegevust ei kustutatud.");
+            }
         }
     }
 
     private void kuvaList(ArrayList<Tegevus> toDoList) {
-        for (Tegevus tegevus : toDoList) {
-            System.out.println(tegevus);
+        if (tegevusiListis(toDoList) == 0) {
+            System.out.println("Sisesta enne mõned tegevused listi.");
+        } else {
+            for (Tegevus tegevus : toDoList) {
+                System.out.println(tegevus);
+            }
         }
     }
 
     private void tegevusTehtuks(ArrayList<Tegevus> toDoList) {
-        kuvaSissekanded(toDoList);
-        System.out.println("Sisesta täisarvuna, mitmenda tegevuse tehtuks muuta tahad.");
-        Scanner scanner = new Scanner(System.in);
-        String sisend = scanner.nextLine();
-        int number = Integer.valueOf(sisend);
-        System.out.println("Soovid tehtuks muuta tegevuse: " + toDoList.get(number-1));
-        System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
-        Scanner scanner1 = new Scanner(System.in);
-        String sisend1 = scanner1.nextLine();
-        if (sisend1.equals("")) {
-            System.out.println("Hea töö!");
-            toDoList.get(number - 1).setTehtud(true);
-        } else if (sisend1.equals("lõpeta")) {
-            return;
+        if (tegevusiListis(toDoList) == 0) {
+            System.out.println("Sisesta enne mõned tegevused listi.");
+        } else {
+            kuvaSissekanded(toDoList);
+            System.out.println("Sisesta täisarvuna, mitmenda tegevuse tehtuks muuta tahad.");
+            Scanner scanner = new Scanner(System.in);
+            String sisend = scanner.nextLine();
+            int number = Integer.valueOf(sisend);
+            Tegevus tegevus = toDoList.get(number-1);
+            System.out.println("Soovid tehtuks muuta tegevuse: " + tegevus);
+            System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
+            Scanner scanner1 = new Scanner(System.in);
+            String sisend1 = scanner1.nextLine();
+            if (sisend1.equals("")) {
+                if (!tegevus.isTehtud()) {
+                    System.out.println("Hea töö!");
+                    tegevus.setTehtud(true);
+                } else {
+                    System.out.println("See tegevus on juba tehtud. Kas soovid märkida selle tegemata tegevuseks?");
+                    System.out.println("Kui jah, vajuta ENTER, kui ei, sisesta 'lõpeta'.");
+                    Scanner scanner2 = new Scanner(System.in);
+                    String sisend2 = scanner2.nextLine();
+                    if (sisend2.equals("")) {
+                        System.out.println("Tegevus " + tegevus + " on muudetud tegemata tegevuseks.");
+                        tegevus.setTehtud(false);
+                    } else if (sisend2.equals("lõpeta")) {
+                        return;
+                    }
+                    return;
+                }
+
+            } else if (sisend1.equals("lõpeta")) {
+                return;
+            }
         }
     }
 
     private void suvalineTegevus(ArrayList<Tegevus> toDoList) {
-        int tegevusi = toDoList.size();
+        int tegevusi = tegevusiListis(toDoList);
         if (tegevusi == 0) {
             System.out.println("Sisesta enne mõned tegevused listi.");
         } else {
@@ -92,24 +124,27 @@ public class ToDoList {
     }
 
     private void muudaTegevuseNime(ArrayList<Tegevus> toDoList) {
-        kuvaSissekanded(toDoList);
-        System.out.println("Sisesta täisarvuna, mitmenda tegevuse nime muuta tahad.");
-        Scanner scanner = new Scanner(System.in);
-        String sisend = scanner.nextLine();
-        int number = Integer.valueOf(sisend);
-        System.out.println("Soovid nime muuta tegevusel: " + toDoList.get(number-1));
-        System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
-        Scanner scanner1 = new Scanner(System.in);
-        String sisend1 = scanner1.nextLine();
-        if (sisend1.equals("")) {
-            System.out.println("Sisesta tegevuse uus nimi: ");
-            Scanner scanner2 = new Scanner(System.in);
-            String sisend2 = scanner2.nextLine();
-            toDoList.get(number-1).setKirjeldus(sisend2);
-        } else if (sisend1.equals("lõpeta")) {
-            return;
+        if (tegevusiListis(toDoList) == 0) {
+            System.out.println("Sisesta enne mõned tegevused listi.");
+        } else {
+            kuvaSissekanded(toDoList);
+            System.out.println("Sisesta täisarvuna, mitmenda tegevuse nime muuta tahad.");
+            Scanner scanner = new Scanner(System.in);
+            String sisend = scanner.nextLine();
+            int number = Integer.valueOf(sisend);
+            System.out.println("Soovid nime muuta tegevusel: " + toDoList.get(number-1));
+            System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
+            Scanner scanner1 = new Scanner(System.in);
+            String sisend1 = scanner1.nextLine();
+            if (sisend1.equals("")) {
+                System.out.println("Sisesta tegevuse uus nimi: ");
+                Scanner scanner2 = new Scanner(System.in);
+                String sisend2 = scanner2.nextLine();
+                toDoList.get(number-1).setKirjeldus(sisend2);
+            } else if (sisend1.equals("lõpeta")) {
+                return;
+            }
         }
-
     }
 
     public void sisendiAnalüüs(String sisend) {
