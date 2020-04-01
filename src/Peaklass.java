@@ -42,15 +42,6 @@ public class Peaklass {
 
             isend.sisendiAnalüüs(sisend);
 
-            //System.out.println("Kui soovid juhtnööre uuesti näha, kirjuta 'jah'; kui ei soovi, vajuta ENTER.");
-            //Scanner scanner1 = new Scanner(System.in);
-            //System.out.println("Sisesta oma vastus:");
-            //String sisend1 = scanner1.nextLine();
-            //if (sisend1.equals("jah")) {
-             //   kuvaJuhtnöörid();
-            //} else if (sisend1.equals("")) {
-             //   continue;
-            //}
         }
 
     }
