@@ -5,6 +5,14 @@ public class ToDoList {
 
     public static ArrayList<Tegevus> toDoList = new ArrayList<>();
 
+    private void kuvaSissekanded(ArrayList<Tegevus> toDoList) {
+        int i = 0;
+        for (Tegevus tegevus : toDoList) {
+            System.out.println(i+1 + ". sissekanne on " + tegevus);
+            i++;
+        }
+    }
+
     private void lisaToDoListi(ArrayList<Tegevus> toDoList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sisesta uus tegevus: ");
@@ -21,11 +29,7 @@ public class ToDoList {
     }
 
     private void kustutaTegevus(ArrayList<Tegevus> toDoList) {
-        int i = 0;
-        for (Tegevus tegevus : toDoList) {
-            System.out.println(i+1 + ". sissekanne on " + tegevus);
-            i++;
-        }
+        kuvaSissekanded(toDoList);
         System.out.println("Sisesta täisarvuna, mitmenda tegevuse kustutada tahad.");
         Scanner scanner = new Scanner(System.in);
         String sisend = scanner.nextLine();
@@ -49,11 +53,7 @@ public class ToDoList {
     }
 
     private void tegevusTehtuks(ArrayList<Tegevus> toDoList) {
-        int i = 0;
-        for (Tegevus tegevus : toDoList) {
-            System.out.println(i+1 + ". sissekanne on " + tegevus);
-            i++;
-        }
+        kuvaSissekanded(toDoList);
         System.out.println("Sisesta täisarvuna, mitmenda tegevuse tehtuks muuta tahad.");
         Scanner scanner = new Scanner(System.in);
         String sisend = scanner.nextLine();
@@ -91,6 +91,27 @@ public class ToDoList {
         }
     }
 
+    private void muudaTegevuseNime(ArrayList<Tegevus> toDoList) {
+        kuvaSissekanded(toDoList);
+        System.out.println("Sisesta täisarvuna, mitmenda tegevuse nime muuta tahad.");
+        Scanner scanner = new Scanner(System.in);
+        String sisend = scanner.nextLine();
+        int number = Integer.valueOf(sisend);
+        System.out.println("Soovid nime muuta tegevusel: " + toDoList.get(number-1));
+        System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
+        Scanner scanner1 = new Scanner(System.in);
+        String sisend1 = scanner1.nextLine();
+        if (sisend1.equals("")) {
+            System.out.println("Sisesta tegevuse uus nimi: ");
+            Scanner scanner2 = new Scanner(System.in);
+            String sisend2 = scanner2.nextLine();
+            toDoList.get(number-1).setKirjeldus(sisend2);
+        } else if (sisend1.equals("lõpeta")) {
+            return;
+        }
+
+    }
+
     public void sisendiAnalüüs(String sisend) {
         switch (sisend) {
             case "1":
@@ -107,6 +128,9 @@ public class ToDoList {
                 break;
             case "5":
                 suvalineTegevus(toDoList);
+                break;
+            case "6":
+                muudaTegevuseNime(toDoList);
                 break;
         }
     }
