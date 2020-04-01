@@ -105,7 +105,7 @@ public class ToDoList {
     private void suvalineTegevus(ArrayList<Tegevus> toDoList) {
         int tegevusi = tegevusiListis(toDoList);
         if (tegevusi == 0) {
-            System.out.println("Sisesta enne mõned tegevused listi.");
+            System.out.println("Sisesta enne listi mõned tegevused.");
         } else {
             ArrayList<Tegevus> tegemata = new ArrayList<>();
             for (Tegevus tegevus : toDoList) {
@@ -125,7 +125,7 @@ public class ToDoList {
 
     private void muudaTegevuseNime(ArrayList<Tegevus> toDoList) {
         if (tegevusiListis(toDoList) == 0) {
-            System.out.println("Sisesta enne mõned tegevused listi.");
+            System.out.println("Sisesta enne listi mõned tegevused.");
         } else {
             kuvaSissekanded(toDoList);
             System.out.println("Sisesta täisarvuna, mitmenda tegevuse nime muuta tahad.");
