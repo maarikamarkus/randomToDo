@@ -32,7 +32,6 @@ public class Peaklass {
             String sisend = scanner.nextLine();
             if (sisend.equals("")) {
                 System.out.println("Programm lõpetas töö.");
-                //return;
                 break;
             } else {
                 System.out.println("Sisestasid: " + sisend);
