@@ -75,9 +75,19 @@ public class ToDoList {
         if (tegevusi == 0) {
             System.out.println("Sisesta enne mõned tegevused listi.");
         } else {
-            Tegevus suvaline = toDoList.get((int) (Math.random()*tegevusi));
-            System.out.print("Järgmisena tee: ");
-            System.out.println(suvaline.getKirjeldus());
+            ArrayList<Tegevus> tegemata = new ArrayList<>();
+            for (Tegevus tegevus : toDoList) {
+                if (!tegevus.isTehtud()) {
+                    tegemata.add(tegevus);
+                }
+            }
+            if (tegemata.size() == 0) {
+                System.out.println("Sul on kõik tehtud! Puhka või lisa uus tegevus.");
+            } else {
+                Tegevus suvaline = tegemata.get((int) (Math.random()*tegevusi));
+                System.out.print("Järgmisena tee: ");
+                System.out.println(suvaline.getKirjeldus());
+            }
         }
     }
 
