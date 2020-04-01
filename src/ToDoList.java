@@ -18,8 +18,6 @@ public class ToDoList {
             tegevus = scanner.nextLine();
         }
         System.out.println("Lõpetasid tegevuste lisamise.");
-        return;
-
     }
 
     private void kustutaTegevus(ArrayList<Tegevus> toDoList) {
@@ -41,9 +39,7 @@ public class ToDoList {
             toDoList.remove(number-1);
         } else if (sisend1.equals("lõpeta")) {
             System.out.println("Ühtegi tegevust ei kustutatud.");
-            return;
         }
-
     }
 
     private void kuvaList(ArrayList<Tegevus> toDoList) {
@@ -78,7 +74,6 @@ public class ToDoList {
         int tegevusi = toDoList.size();
         if (tegevusi == 0) {
             System.out.println("Sisesta enne mõned tegevused listi.");
-            return;
         } else {
             Tegevus suvaline = toDoList.get((int) (Math.random()*tegevusi));
             System.out.print("Järgmisena tee: ");
