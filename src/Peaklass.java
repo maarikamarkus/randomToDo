@@ -8,7 +8,7 @@ public class Peaklass {
         System.out.println("lisa tegevus: sisesta 1 ja vajuta ENTER");
         System.out.println("kustuta tegevus: sisesta 2 ja vajuta ENTER");
         System.out.println("kuva to-do list: sisesta 3 ja vajuta ENTER");
-        System.out.println("märgi tegevus tehtuks: sisesta 4 ja vajuta ENTER");
+        System.out.println("märgi tegevus tehtuks/tegemata tegevuseks: sisesta 4 ja vajuta ENTER");
         System.out.println("vali suvaline tegevus, mida tegema hakata: sisesta 5 ja vajuta ENTER");
         System.out.println("mingi tegevuse nime muutmiseks: sisesta 6 ja vajuta ENTER");
     }
