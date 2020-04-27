@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 public class vaadeController {
 
@@ -18,9 +19,10 @@ public class vaadeController {
 
     @FXML
     void initialize() {
-        vaadeUusTegevusLabel.setOnMouseClicked(event -> {
-            System.out.println("vajutasin sildile uus tegevus");
+        vaadeUusTegevusLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            System.out.println("tahan uut tegevust lisada");
         });
+
     }
 
     private void tegevusteLisamine() {
