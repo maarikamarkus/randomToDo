@@ -3,8 +3,10 @@ package Controllerid;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,6 +34,11 @@ public class tegevusedController {
     @FXML
     void initialize() {
         tegevusedLisaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                vahetaVaadet();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("tahan listi vaates uut tegevust lisada");
         });
 
@@ -48,11 +55,21 @@ public class tegevusedController {
         });
     }
 
-    public void vahetaVaadet(String vaade) throws IOException {
+    public void vahetaVaadet() throws IOException {
+        tegevusedLisaLabel.getScene().getWindow().hide();
+        FXMLLoader laadija = new FXMLLoader();
+        laadija.setLocation(getClass().getResource("/main/resources/lisaTegevus.fxml"));
 
-        FXMLLoader laadija = new FXMLLoader(getClass().getResource(vaade));
-        Parent root = laadija.load();
+        try {
+            laadija.load();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
+        Parent root = laadija.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
 
     }
 
