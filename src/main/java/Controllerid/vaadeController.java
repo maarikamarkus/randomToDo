@@ -39,7 +39,6 @@ public class vaadeController {
         vaadeUusTegevusLabel.getScene().getWindow().hide();
         FXMLLoader laadija = new FXMLLoader();
         laadija.setLocation(getClass().getResource("/lisaTegevus.fxml"));
-        //laadija.setLocation(getClass().getResource());
 
         try {
             laadija.load();

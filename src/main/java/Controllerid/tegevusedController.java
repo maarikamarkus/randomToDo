@@ -58,7 +58,7 @@ public class tegevusedController {
     public void vahetaVaadet() throws IOException {
         tegevusedLisaLabel.getScene().getWindow().hide();
         FXMLLoader laadija = new FXMLLoader();
-        laadija.setLocation(getClass().getResource("/main/resources/lisaTegevus.fxml"));
+        laadija.setLocation(getClass().getResource("/lisaTegevus.fxml"));
 
         try {
             laadija.load();
