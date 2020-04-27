@@ -4,10 +4,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllerid.lisaTegevusController">
    <children>
       <TextField fx:id="lisaTegevusUusTegevusField" layoutX="134.0" layoutY="98.0" prefHeight="25.0" prefWidth="432.0" promptText="UUS TEGEVUS" />
       <Button fx:id="lisaTegevusLisaNupp" layoutX="134.0" layoutY="142.0" mnemonicParsing="false" text="Lisa!" />
+      <Button fx:id="lisaTegevusVaataTegevusiNupp" layoutX="192.0" layoutY="142.0" mnemonicParsing="false" text="Vaata tegevuste nimekirja" />
    </children>
 </AnchorPane>
