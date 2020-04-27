@@ -49,9 +49,22 @@ public class tegevusedController {
     }
 
     public void vahetaVaadet(String vaade) throws IOException {
+
         FXMLLoader laadija = new FXMLLoader(getClass().getResource(vaade));
         Parent root = laadija.load();
 
 
     }
+
+
+    // label.getScene().getWindow().hide();
+    // FXMLLoader loader = new FXMLLoader();
+    // loader.setLocation(getClass().getResource(fxml));
+    // try { loader.load() } catch (IOException e) { sout }
+    // Parent root = loader.getRoot();
+    // Stage stage = new Stage();
+    // stage.setScene(new Scene(root));
+    // stage.showAndWait();
+    // g
+
 }

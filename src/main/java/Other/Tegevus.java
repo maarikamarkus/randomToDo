@@ -1,3 +1,5 @@
+package Other;
+
 public class Tegevus {
 
     private String kirjeldus;

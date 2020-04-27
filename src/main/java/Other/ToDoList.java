@@ -1,3 +1,5 @@
+package Other;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -88,7 +90,7 @@ public class ToDoList {
                     Scanner scanner2 = new Scanner(System.in);
                     String sisend2 = scanner2.nextLine();
                     if (sisend2.equals("")) {
-                        System.out.println("Tegevus " + tegevus + " on muudetud tegemata tegevuseks.");
+                        System.out.println("Other.Tegevus " + tegevus + " on muudetud tegemata tegevuseks.");
                         tegevus.setTehtud(false);
                     } else if (sisend2.equals("lõpeta")) {
                         return;

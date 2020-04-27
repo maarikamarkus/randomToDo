@@ -26,7 +26,8 @@ public class lisaTegevusController {
     @FXML
     void initialize() {
         lisaTegevusLisaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            //Tegevus uusTegevus = new Tegevus(lisaTegevusUusTegevusField.getText(), false);
+            //Other.Tegevus uusTegevus = new Other.Tegevus(lisaTegevusUusTegevusField.getText(), false);
+
         });
     }
 
