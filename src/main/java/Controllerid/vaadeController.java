@@ -25,16 +25,21 @@ public class vaadeController {
     @FXML
     void initialize() {
         vaadeUusTegevusLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            tegevusteLisamine();
+            try {
+                tegevusteLisamine();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("tahan uut tegevust lisada");
         });
 
     }
 
-    private void tegevusteLisamine() {
+    private void tegevusteLisamine() throws IOException {
         vaadeUusTegevusLabel.getScene().getWindow().hide();
         FXMLLoader laadija = new FXMLLoader();
-        laadija.setLocation(getClass().getResource("/main/resources/lisaTegevus.fxml"));
+        laadija.setLocation(getClass().getResource("/lisaTegevus.fxml"));
+        //laadija.setLocation(getClass().getResource());
 
         try {
             laadija.load();
