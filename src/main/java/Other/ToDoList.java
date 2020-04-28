@@ -1,3 +1,5 @@
+package Other;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -5,7 +7,7 @@ public class ToDoList {
 
     public static ArrayList<Tegevus> toDoList = new ArrayList<>();
 
-    private void kuvaSissekanded(ArrayList<Tegevus> toDoList) {
+    public void kuvaSissekanded(ArrayList<Tegevus> toDoList) {
         int i = 0;
         for (Tegevus tegevus : toDoList) {
             System.out.println(i+1 + ". sissekanne on " + tegevus);
@@ -13,11 +15,11 @@ public class ToDoList {
         }
     }
 
-    private int tegevusiListis(ArrayList<Tegevus> toDoList) {
+    public int tegevusiListis(ArrayList<Tegevus> toDoList) {
         return toDoList.size();
     }
 
-    private void lisaToDoListi(ArrayList<Tegevus> toDoList) {
+    public void lisaToDoListi(ArrayList<Tegevus> toDoList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sisesta uus tegevus: ");
         String tegevus = scanner.nextLine();
@@ -32,7 +34,7 @@ public class ToDoList {
         System.out.println("Lõpetasid tegevuste lisamise.");
     }
 
-    private void kustutaTegevus(ArrayList<Tegevus> toDoList) {
+    public void kustutaTegevus(ArrayList<Tegevus> toDoList) {
         if (tegevusiListis(toDoList) == 0) {
             System.out.println("Sul ei ole tegevusi, mida kustutada.");
         } else {
@@ -54,7 +56,7 @@ public class ToDoList {
         }
     }
 
-    private void kuvaList(ArrayList<Tegevus> toDoList) {
+    public void kuvaList(ArrayList<Tegevus> toDoList) {
         if (tegevusiListis(toDoList) == 0) {
             System.out.println("Sisesta enne mõned tegevused listi.");
         } else {
@@ -64,7 +66,7 @@ public class ToDoList {
         }
     }
 
-    private void tegevusTehtuks(ArrayList<Tegevus> toDoList) {
+    public void tegevusTehtuks(ArrayList<Tegevus> toDoList) {
         if (tegevusiListis(toDoList) == 0) {
             System.out.println("Sisesta enne mõned tegevused listi.");
         } else {
@@ -88,7 +90,7 @@ public class ToDoList {
                     Scanner scanner2 = new Scanner(System.in);
                     String sisend2 = scanner2.nextLine();
                     if (sisend2.equals("")) {
-                        System.out.println("Tegevus " + tegevus + " on muudetud tegemata tegevuseks.");
+                        System.out.println("Other.Tegevus " + tegevus + " on muudetud tegemata tegevuseks.");
                         tegevus.setTehtud(false);
                     } else if (sisend2.equals("lõpeta")) {
                         return;
@@ -102,7 +104,7 @@ public class ToDoList {
         }
     }
 
-    private void suvalineTegevus(ArrayList<Tegevus> toDoList) {
+    public void suvalineTegevus(ArrayList<Tegevus> toDoList) {
         int tegevusi = tegevusiListis(toDoList);
         if (tegevusi == 0) {
             System.out.println("Sisesta enne listi mõned tegevused.");
@@ -123,7 +125,7 @@ public class ToDoList {
         }
     }
 
-    private void muudaTegevuseNime(ArrayList<Tegevus> toDoList) {
+    public void muudaTegevuseNime(ArrayList<Tegevus> toDoList) {
         if (tegevusiListis(toDoList) == 0) {
             System.out.println("Sisesta enne listi mõned tegevused.");
         } else {

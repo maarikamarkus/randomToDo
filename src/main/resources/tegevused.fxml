@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllerid.tegevusedController">
+   <children>
+      <Label fx:id="tegevusedLisaLabel" alignment="CENTER" layoutX="23.0" layoutY="26.0" prefHeight="24.0" prefWidth="154.0" style="-fx-background-color: #1AF;" text="LISA TEGEVUS" textFill="WHITE" />
+      <Label fx:id="tegevusedMuudaLabel" alignment="CENTER" layoutX="518.0" layoutY="26.0" prefHeight="24.0" prefWidth="162.0" style="-fx-background-color: #1AF;" text="MUUDA TEGEVUST" textFill="WHITE" />
+      <Label fx:id="tegevusedSuvalineLabel" alignment="CENTER" layoutX="350.0" layoutY="26.0" prefHeight="24.0" prefWidth="162.0" style="-fx-background-color: #1AF;" text="SUVALINE TEGEVUS" textFill="WHITE" />
+      <Label fx:id="tegevusedKustutaLabel" alignment="CENTER" layoutX="182.0" layoutY="26.0" prefHeight="24.0" prefWidth="162.0" style="-fx-background-color: #1AF;" text="KUSTUTA TEGEVUS" textFill="WHITE" />
+   </children>
+</AnchorPane>
