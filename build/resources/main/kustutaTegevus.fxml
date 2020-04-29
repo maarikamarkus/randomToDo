@@ -12,12 +12,12 @@
          <children>
             <VBox alignment="CENTER" layoutY="100.0" prefHeight="250.0" prefWidth="200.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="75.0">
                <children>
-                  <Label style="-fx-background-color: #fff;" text="Tegevused">
+                  <Label style="-fx-background-color: #fff;" text="Vali, millist tegevust kustutada:">
                      <font>
-                        <Font name="System Bold Italic" size="14.0" />
+                        <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="kustutaTegevusList" prefHeight="254.0" prefWidth="201.0" />
+                  <ListView fx:id="kustutaTegevusList" onMouseClicked="#kustutaTegevus" prefHeight="254.0" prefWidth="201.0" />
                </children>
             </VBox>
          </children>

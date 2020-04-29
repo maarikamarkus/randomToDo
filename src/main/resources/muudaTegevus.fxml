@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #1af;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MuudaTegevus">
+   <children>
+      <VBox layoutX="300.0" layoutY="93.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="75.0">
+         <children>
+            <Label style="-fx-background-color: #fff;" text="Vali, millist tegevust muuta:">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </Label>
+            <ListView fx:id="muudaTegevusList" prefHeight="273.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <Label layoutX="30.0" layoutY="30.0" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #1af;" text="RandomToDo" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

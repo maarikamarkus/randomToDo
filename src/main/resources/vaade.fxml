@@ -8,17 +8,15 @@
    <children>
       <AnchorPane layoutY="86.0" prefHeight="314.0" prefWidth="700.0" style="-fx-background-color: #FFF;">
          <children>
-            <Label alignment="CENTER" layoutX="203.0" layoutY="137.0" prefHeight="17.0" prefWidth="284.0" text="Kõk on tehtud!">
+            <Label fx:id="vaadeUusTegevusLabel" alignment="CENTER" layoutX="250.0" layoutY="189.0" prefHeight="29.0" prefWidth="190.0" style="-fx-background-color: #1af;" text="UUS TEGEVUS" textFill="WHITE" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="255.0" AnchorPane.topAnchor="142.0">
                <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="vaadeUusTegevusLabel" alignment="CENTER" layoutX="250.0" layoutY="189.0" prefHeight="29.0" prefWidth="190.0" style="-fx-background-color: #1af;" text="UUS TEGEVUS" textFill="WHITE" />
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
          </children>
       </AnchorPane>
       <Label alignment="CENTER" layoutX="282.0" layoutY="36.0" prefHeight="50.0" prefWidth="136.0" text="randomToDo" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
    </children>
