@@ -51,8 +51,31 @@ public class tegevusedController {
         });
 
         tegevusedKustutaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+
+                vahetaVaadet1();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("tahan mingit tegevust kustutada");
         });
+    }
+
+    public void vahetaVaadet1() throws IOException {
+        tegevusedKustutaLabel.getScene().getWindow().hide();
+        FXMLLoader laadija = new FXMLLoader();
+        laadija.setLocation(getClass().getResource("/kustutaTegevus.fxml"));
+
+        try {
+            laadija.load();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        Parent root = laadija.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
     }
 
     public void vahetaVaadet() throws IOException {
@@ -70,7 +93,6 @@ public class tegevusedController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
-
     }
 
 
