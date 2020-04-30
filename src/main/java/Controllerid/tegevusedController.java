@@ -71,7 +71,6 @@ public class tegevusedController {
     }
 
     public void vahetaVaadet(String asukoht) throws IOException {
-        System.out.println("proovikas");
         tegevusedLisaLabel.getScene().getWindow().hide();
         FXMLLoader laadija = new FXMLLoader();
         laadija.setLocation(getClass().getResource(asukoht));
