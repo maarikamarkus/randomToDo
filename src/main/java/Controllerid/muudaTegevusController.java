@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-
 public class muudaTegevusController {
 
     private static List<Tegevus> tegevused = ToDoList.toDoList;
@@ -26,7 +25,6 @@ public class muudaTegevusController {
     private ListView<String> muudaTegevusList;
     @FXML
     private Button vaataTegevusi;
-
 
     @FXML
     void initialize() {

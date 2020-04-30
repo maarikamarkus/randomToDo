@@ -32,8 +32,6 @@ public class lisaTegevusController {
     @FXML
     private Button lisaTegevusVaataTegevusiNupp;
 
-    private ToDoList toDoList;
-
     @FXML
     void initialize() {
         lisaTegevusLisaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -41,7 +39,7 @@ public class lisaTegevusController {
             String tegevuseKirjeldus = lisaTegevusUusTegevusField.getText();
             if (!tegevuseKirjeldus.equals("")) {
                 Other.Tegevus uusTegevus = new Other.Tegevus(lisaTegevusUusTegevusField.getText(), false);
-
+                
             }
 
             try {

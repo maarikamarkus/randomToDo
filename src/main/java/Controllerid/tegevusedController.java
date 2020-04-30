@@ -38,7 +38,7 @@ public class tegevusedController {
                 vahetaVaadet("/lisaTegevus.fxml");
             } catch (IOException e) {
                 System.out.println(e.getMessage());
-            }
+            } //*/
             System.out.println("tahan listi vaates uut tegevust lisada");
         });
 
