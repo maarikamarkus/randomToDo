@@ -52,6 +52,11 @@ public class tegevusedController {
         });
 
         tegevusedSuvalineLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                vahetaVaadet("/suvalineTegevus.fxml");
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("tahan suvalist tegevust");
         });
 
