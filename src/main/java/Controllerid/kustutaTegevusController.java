@@ -15,17 +15,17 @@ public class kustutaTegevusController {
     @FXML
     ListView<String> kustutaTegevusList;
 
-    public void kustutaTegevus() {
-        String valitud = kustutaTegevusList.getSelectionModel().getSelectedItem();
-        tegevused.removeIf(tegevus -> tegevus.getKirjeldus().equals(valitud));
-    }
-
     @FXML
     void initialize() {
         for (Tegevus tegevus : tegevused) {
             kustutaTegevusList.getItems().add(tegevus.getKirjeldus());
         }
         kustutaTegevus();
+    }
+
+    public void kustutaTegevus() {
+        String valitud = kustutaTegevusList.getSelectionModel().getSelectedItem();
+        tegevused.removeIf(tegevus -> tegevus.getKirjeldus().equals(valitud));
     }
 
 }

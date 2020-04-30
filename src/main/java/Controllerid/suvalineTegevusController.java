@@ -26,26 +26,6 @@ public class suvalineTegevusController {
     @FXML
     private TextField näitaTegevustText;
 
-    public void annaSuvalineTegevus() {
-        int tegevusi = tegevused.size();
-        if (tegevusi == 0) {
-            näitaTegevustText.setText("Sisesta enne listi mõned tegevused.");
-        } else {
-            ArrayList<Tegevus> tegemata = new ArrayList<>();
-            for (Tegevus tegevus : tegevused) {
-                if (!tegevus.isTehtud()) {
-                    tegemata.add(tegevus);
-                }
-            }
-            if (tegemata.size() == 0) {
-                näitaTegevustText.setText("Sul on kõik tehtud! Puhka või lisa uus tegevus.");
-            } else {
-                Tegevus suvaline = tegemata.get((int) (Math.random()*tegevusi));
-                näitaTegevustText.setText("Järgmisena tee: " + suvaline.getKirjeldus());
-            }
-        }
-    }
-
     @FXML
     void initialize() {
 
@@ -79,6 +59,26 @@ public class suvalineTegevusController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
+    }
+
+    public void annaSuvalineTegevus() {
+        int tegevusi = tegevused.size();
+        if (tegevusi == 0) {
+            näitaTegevustText.setText("Sisesta enne listi mõned tegevused.");
+        } else {
+            ArrayList<Tegevus> tegemata = new ArrayList<>();
+            for (Tegevus tegevus : tegevused) {
+                if (!tegevus.isTehtud()) {
+                    tegemata.add(tegevus);
+                }
+            }
+            if (tegemata.size() == 0) {
+                näitaTegevustText.setText("Sul on kõik tehtud! Puhka või lisa uus tegevus.");
+            } else {
+                Tegevus suvaline = tegemata.get((int) (Math.random()*tegevusi+1));
+                näitaTegevustText.setText("Järgmisena tee: " + suvaline.getKirjeldus());
+            }
+        }
     }
 
 }

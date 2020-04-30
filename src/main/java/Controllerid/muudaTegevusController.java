@@ -27,6 +27,23 @@ public class muudaTegevusController {
     @FXML
     private Button vaataTegevusi;
 
+
+    @FXML
+    void initialize() {
+        for (Tegevus tegevus : tegevused) {
+            muudaTegevusList.getItems().add(tegevus.getKirjeldus());
+        }
+        muudaTegevuseNime();
+
+        vaataTegevusi.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                liiguTegevusteVaatesse();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        });
+    }
+
     public void muudaTegevuseNime() {
         String valitud = muudaTegevusList.getSelectionModel().getSelectedItem();
         String uus = muudaTegevustText.getText();
@@ -52,22 +69,6 @@ public class muudaTegevusController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
-    }
-
-    @FXML
-    void initialize() {
-        for (Tegevus tegevus : tegevused) {
-            muudaTegevusList.getItems().add(tegevus.getKirjeldus());
-        }
-        muudaTegevuseNime();
-
-        vaataTegevusi.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            try {
-                liiguTegevusteVaatesse();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-        });
     }
 
 }
