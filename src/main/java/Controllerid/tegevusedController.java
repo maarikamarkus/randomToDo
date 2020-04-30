@@ -35,7 +35,7 @@ public class tegevusedController {
     void initialize() {
         tegevusedLisaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
-                vahetaVaadet();
+                vahetaVaadet("/lisaTegevus.fxml");
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
@@ -43,22 +43,38 @@ public class tegevusedController {
         });
 
         tegevusedMuudaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                vahetaVaadet("/muudaTegevus.fxml");
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("tahan mingit tegevust muuta");
         });
 
         tegevusedSuvalineLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                vahetaVaadet("/suvalineTegevus.fxml");
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("tahan suvalist tegevust");
         });
 
         tegevusedKustutaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                vahetaVaadet("/kustutaTegevus.fxml");
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("tahan mingit tegevust kustutada");
         });
     }
 
-    public void vahetaVaadet() throws IOException {
+    public void vahetaVaadet(String asukoht) throws IOException {
+        System.out.println("proovikas");
         tegevusedLisaLabel.getScene().getWindow().hide();
         FXMLLoader laadija = new FXMLLoader();
-        laadija.setLocation(getClass().getResource("/lisaTegevus.fxml"));
+        laadija.setLocation(getClass().getResource(asukoht));
 
         try {
             laadija.load();
@@ -70,7 +86,6 @@ public class tegevusedController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
-
     }
 
 
