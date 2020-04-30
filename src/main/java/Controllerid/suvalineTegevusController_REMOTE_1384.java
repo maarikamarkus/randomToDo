@@ -26,7 +26,7 @@ public class suvalineTegevusController {
     @FXML
     private TextField näitaTegevustText;
 
-    public void annaSuvalineTegevus() {
+    private void annaSuvalineTegevus() {
         int tegevusi = tegevused.size();
         if (tegevusi == 0) {
             näitaTegevustText.setText("Sisesta enne listi mõned tegevused.");
@@ -63,7 +63,7 @@ public class suvalineTegevusController {
 
     }
 
-    public void liiguTegevusteVaatesse() throws IOException {
+    private void liiguTegevusteVaatesse() throws IOException {
         vaataTegevusi.getScene().getWindow().hide();
         FXMLLoader laadija = new FXMLLoader();
         laadija.setLocation(getClass().getResource("/tegevused.fxml"));

@@ -46,7 +46,6 @@ public class suvalineTegevusController {
         }
     }
 
-    @FXML
     void initialize() {
 
         suvalineTegevusNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {

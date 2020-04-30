@@ -26,7 +26,11 @@ public class suvalineTegevusController {
     @FXML
     private TextField näitaTegevustText;
 
+<<<<<<< HEAD
     public void annaSuvalineTegevus() {
+=======
+    private void annaSuvalineTegevus() {
+>>>>>>> 37fb2b0cb78b7bb54b70af0838e325bcaefd838b
         int tegevusi = tegevused.size();
         if (tegevusi == 0) {
             näitaTegevustText.setText("Sisesta enne listi mõned tegevused.");
@@ -46,7 +50,10 @@ public class suvalineTegevusController {
         }
     }
 
+<<<<<<< HEAD
+=======
     @FXML
+>>>>>>> 37fb2b0cb78b7bb54b70af0838e325bcaefd838b
     void initialize() {
 
         suvalineTegevusNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -63,7 +70,11 @@ public class suvalineTegevusController {
 
     }
 
+<<<<<<< HEAD
     public void liiguTegevusteVaatesse() throws IOException {
+=======
+    private void liiguTegevusteVaatesse() throws IOException {
+>>>>>>> 37fb2b0cb78b7bb54b70af0838e325bcaefd838b
         vaataTegevusi.getScene().getWindow().hide();
         FXMLLoader laadija = new FXMLLoader();
         laadija.setLocation(getClass().getResource("/tegevused.fxml"));
