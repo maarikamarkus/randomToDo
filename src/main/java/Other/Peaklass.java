@@ -26,7 +26,7 @@ public class Peaklass {
         kuvaJuhtnöörid();
         System.out.println();
 
-        ToDoList isend = new ToDoList();
+        ToDoList isend = ToDoList.getInstance();
 
         while (true) {
             Scanner scanner = new Scanner(System.in);
@@ -41,11 +41,7 @@ public class Peaklass {
             } else {
                 System.out.println("Sisestasid: " + sisend);
             }
-
             isend.sisendiAnalüüs(sisend);
-
         }
-
     }
-
 }
