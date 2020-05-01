@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #1af;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllerid.suvalineTegevusController">
    <children>
-      <Button fx:id="suvalineTegevusNupp" layoutX="324.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#annaSuvalineTegevus" style="-fx-background-color: #fff;" text="Anna mulle tegevus!" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="280.0">
+      <Button fx:id="suvalineTegevusNupp" layoutX="324.0" layoutY="143.0" mnemonicParsing="false" style="-fx-background-color: #fff;" text="Anna mulle tegevus!" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="280.0">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
@@ -23,7 +23,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <Button fx:id="vaataTegevusi" layoutX="634.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#liiguTegevusteVaatesse" style="-fx-background-color: #fff;" text="Vaata tegevuste nimekirja" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="520.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="340.0">
+      <Button fx:id="vaataTegevusi" layoutX="634.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #fff;" text="Vaata tegevuste nimekirja!" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="520.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="340.0">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
