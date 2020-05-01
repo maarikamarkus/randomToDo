@@ -18,7 +18,7 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="näitaTegevustText" layoutX="276.0" layoutY="200.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="265.0">
+      <TextField fx:id="näitaTegevustText" layoutX="190.0" layoutY="200.0" prefHeight="25.0" prefWidth="321.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="189.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
