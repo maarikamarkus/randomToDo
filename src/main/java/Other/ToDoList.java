@@ -1,13 +1,34 @@
 package Other;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ToDoList {
 
-    public static ArrayList<Tegevus> toDoList = new ArrayList<>();
+    //public static List<Tegevus> toDoList;
+    private List<Tegevus> toDoList = new ArrayList<>();
+    private static ToDoList tegevused = null;
 
-    public void kuvaSissekanded(ArrayList<Tegevus> toDoList) {
+    public ToDoList() {
+    }
+
+    public static ToDoList getInstance() {
+        if (tegevused == null) {
+            tegevused = new ToDoList();
+        }
+        return tegevused;
+    }
+
+    public List<Tegevus> getToDoList() {
+        return toDoList;
+    }
+
+    public void määraToDoList(ToDoList toDoList) {
+        this.toDoList = toDoList.getToDoList();
+    }
+
+    public void kuvaSissekanded(List<Tegevus> toDoList) {
         int i = 0;
         for (Tegevus tegevus : toDoList) {
             System.out.println(i+1 + ". sissekanne on " + tegevus);
@@ -15,11 +36,15 @@ public class ToDoList {
         }
     }
 
-    public int tegevusiListis(ArrayList<Tegevus> toDoList) {
+    public int tegevusiListis(List<Tegevus> toDoList) {
         return toDoList.size();
     }
 
-    public void lisaToDoListi(ArrayList<Tegevus> toDoList) {
+    public int tegevusiListis() {
+        return getToDoList().size();
+    }
+
+    public void lisaToDoListi(List<Tegevus> toDoList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sisesta uus tegevus: ");
         String tegevus = scanner.nextLine();
@@ -34,7 +59,11 @@ public class ToDoList {
         System.out.println("Lõpetasid tegevuste lisamise.");
     }
 
-    public void kustutaTegevus(ArrayList<Tegevus> toDoList) {
+    public void lisaToDoListi(Tegevus tegevus) {
+        toDoList.add(tegevus);
+    }
+
+    public void kustutaTegevus(List<Tegevus> toDoList) {
         if (tegevusiListis(toDoList) == 0) {
             System.out.println("Sul ei ole tegevusi, mida kustutada.");
         } else {
@@ -56,7 +85,7 @@ public class ToDoList {
         }
     }
 
-    public void kuvaList(ArrayList<Tegevus> toDoList) {
+    public void kuvaList(List<Tegevus> toDoList) {
         if (tegevusiListis(toDoList) == 0) {
             System.out.println("Sisesta enne mõned tegevused listi.");
         } else {
@@ -66,7 +95,11 @@ public class ToDoList {
         }
     }
 
-    public void tegevusTehtuks(ArrayList<Tegevus> toDoList) {
+    public void kuvaList() {
+        kuvaList(toDoList);
+    }
+
+    public void tegevusTehtuks(List<Tegevus> toDoList) {
         if (tegevusiListis(toDoList) == 0) {
             System.out.println("Sisesta enne mõned tegevused listi.");
         } else {
@@ -104,7 +137,7 @@ public class ToDoList {
         }
     }
 
-    public void suvalineTegevus(ArrayList<Tegevus> toDoList) {
+    public void suvalineTegevus(List<Tegevus> toDoList) {
         int tegevusi = tegevusiListis(toDoList);
         if (tegevusi == 0) {
             System.out.println("Sisesta enne listi mõned tegevused.");
@@ -125,7 +158,7 @@ public class ToDoList {
         }
     }
 
-    public void muudaTegevuseNime(ArrayList<Tegevus> toDoList) {
+    public void muudaTegevuseNime(List<Tegevus> toDoList) {
         if (tegevusiListis(toDoList) == 0) {
             System.out.println("Sisesta enne listi mõned tegevused.");
         } else {

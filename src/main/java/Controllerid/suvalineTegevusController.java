@@ -17,14 +17,14 @@ import java.util.List;
 
 public class suvalineTegevusController {
 
-    private static List<Tegevus> tegevused = ToDoList.toDoList;
-
     @FXML
     private Button suvalineTegevusNupp;
     @FXML
     private Button vaataTegevusi;
     @FXML
     private TextField näitaTegevustText;
+
+    private ToDoList toDoList = ToDoList.getInstance();
 
     @FXML
     void initialize() {
@@ -62,12 +62,12 @@ public class suvalineTegevusController {
     }
 
     public void annaSuvalineTegevus() {
-        int tegevusi = tegevused.size();
+        int tegevusi = toDoList.tegevusiListis();
         if (tegevusi == 0) {
             näitaTegevustText.setText("Sisesta enne listi mõned tegevused.");
         } else {
             ArrayList<Tegevus> tegemata = new ArrayList<>();
-            for (Tegevus tegevus : tegevused) {
+            for (Tegevus tegevus : toDoList.getToDoList()) {
                 if (!tegevus.isTehtud()) {
                     tegemata.add(tegevus);
                 }

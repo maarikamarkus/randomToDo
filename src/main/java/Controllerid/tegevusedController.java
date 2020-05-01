@@ -1,10 +1,14 @@
 package Controllerid;
 
+import Other.Tegevus;
+import Other.ToDoList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -32,13 +36,23 @@ public class tegevusedController {
     private Label tegevusedKustutaLabel;
 
     @FXML
+    private ListView<String> tegevusedListView;
+
+    private ToDoList toDoList = ToDoList.getInstance();
+
+    @FXML
     void initialize() {
+
+        for (Tegevus tegevus : toDoList.getToDoList()) {
+            tegevusedListView.getItems().add(tegevus.toString());
+        } //*/
+
         tegevusedLisaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
                 vahetaVaadet("/lisaTegevus.fxml", tegevusedLisaLabel);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
-            } //*/
+            }
             System.out.println("tahan listi vaates uut tegevust lisada");
         });
 
