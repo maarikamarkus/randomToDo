@@ -32,7 +32,6 @@ public class vaadeController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan alustada tegevuste lisamisega, @vaade");
         });
 
     }

@@ -53,7 +53,6 @@ public class tegevusedController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan listi vaates uut tegevust lisada");
         });
 
         tegevusedMuudaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -62,7 +61,6 @@ public class tegevusedController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan mingit tegevust muuta");
         });
 
         tegevusedSuvalineLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -71,7 +69,6 @@ public class tegevusedController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan suvalist tegevust");
         });
 
         tegevusedKustutaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -80,7 +77,6 @@ public class tegevusedController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan mingit tegevust kustutada");
         });
     }
 

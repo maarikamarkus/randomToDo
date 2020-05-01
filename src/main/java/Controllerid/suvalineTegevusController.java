@@ -30,7 +30,6 @@ public class suvalineTegevusController {
     void initialize() {
 
         suvalineTegevusNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            System.out.println("anna suvaline tegevus");
             annaSuvalineTegevus();
         });
 
@@ -46,7 +45,6 @@ public class suvalineTegevusController {
 
     public void liiguTegevusteVaatesse() throws IOException {
         vaataTegevusi.getScene().getWindow().hide();
-        System.out.println("liigu tegevuste vaatesse");
         FXMLLoader laadija = new FXMLLoader();
         laadija.setLocation(getClass().getResource("/tegevused.fxml"));
 
