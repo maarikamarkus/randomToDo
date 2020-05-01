@@ -3,6 +3,8 @@ package Controllerid;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Other.ToDoList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +32,7 @@ public class vaadeController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan uut tegevust lisada");
+            System.out.println("tahan alustada tegevuste lisamisega, @vaade");
         });
 
     }
@@ -48,6 +50,7 @@ public class vaadeController {
 
         Parent root = laadija.getRoot();
         Stage stage = new Stage();
+        stage.setTitle("lisaTegevus");
         stage.setScene(new Scene(root));
         stage.showAndWait();
     }

@@ -1,7 +1,5 @@
 package Controllerid;
 
-import Other.ToDoList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,8 +30,6 @@ public class lisaTegevusController {
     @FXML
     private Button lisaTegevusVaataTegevusiNupp;
 
-    private ToDoList toDoList;
-
     @FXML
     void initialize() {
         lisaTegevusLisaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -41,7 +37,7 @@ public class lisaTegevusController {
             String tegevuseKirjeldus = lisaTegevusUusTegevusField.getText();
             if (!tegevuseKirjeldus.equals("")) {
                 Other.Tegevus uusTegevus = new Other.Tegevus(lisaTegevusUusTegevusField.getText(), false);
-
+                // vaja see kuskile lisada ka, kuhu teeme toDoList isendi?
             }
 
             try {
@@ -77,6 +73,7 @@ public class lisaTegevusController {
 
         Parent root = laadija.getRoot();
         Stage stage = new Stage();
+        stage.setTitle("randomToDo");
         stage.setScene(new Scene(root));
         stage.showAndWait();
     }

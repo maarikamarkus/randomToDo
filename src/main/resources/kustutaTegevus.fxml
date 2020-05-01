@@ -21,12 +21,12 @@
                   <ListView fx:id="kustutaTegevusList" prefHeight="254.0" prefWidth="201.0" />
                </children>
             </VBox>
-            <Label layoutX="20.0" layoutY="14.0" text="RandomToDo" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="570.0" AnchorPane.topAnchor="10.0">
+            <Label layoutX="20.0" layoutY="14.0" text="RandomToDo" textFill="WHITE" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="570.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="605.0" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: #fff;" text="Näita kõiki tegevusi" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="340.0">
+            <Button fx:id="kustutaTegevusNäitaTegevusiNupp" layoutX="605.0" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: #fff;" text="Näita kõiki tegevusi" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="340.0">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
