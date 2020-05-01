@@ -75,7 +75,7 @@ public class suvalineTegevusController {
             if (tegemata.size() == 0) {
                 näitaTegevustText.setText("Sul on kõik tehtud! Puhka või lisa uus tegevus.");
             } else {
-                Tegevus suvaline = tegemata.get(new Random().nextInt(tegevusi));
+                Tegevus suvaline = tegemata.get(new Random().nextInt(tegemata.size()));
                 näitaTegevustText.setText("Järgmisena tee: " + suvaline.getKirjeldus());
             }
         }
