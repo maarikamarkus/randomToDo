@@ -47,7 +47,6 @@ public class suvalineTegevusController {
         vaataTegevusi.getScene().getWindow().hide();
         FXMLLoader laadija = new FXMLLoader();
         laadija.setLocation(getClass().getResource("/tegevused.fxml"));
-        //laadija.setLocation(getClass().getResource());
 
         try {
             laadija.load();
@@ -57,6 +56,7 @@ public class suvalineTegevusController {
 
         Parent root = laadija.getRoot();
         Stage stage = new Stage();
+        stage.setTitle("randomToDo");
         stage.setScene(new Scene(root));
         stage.show();
     }

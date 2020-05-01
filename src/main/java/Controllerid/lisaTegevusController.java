@@ -37,7 +37,7 @@ public class lisaTegevusController {
             String tegevuseKirjeldus = lisaTegevusUusTegevusField.getText();
             if (!tegevuseKirjeldus.equals("")) {
                 Other.Tegevus uusTegevus = new Other.Tegevus(lisaTegevusUusTegevusField.getText(), false);
-
+                // vaja see kuskile lisada ka, kuhu teeme toDoList isendi?
             }
 
             try {
