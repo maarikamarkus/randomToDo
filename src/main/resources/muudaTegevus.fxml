@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="OKButton" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #1af;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllerid.muudaTegevusController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #1af;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllerid.muudaTegevusController">
    <children>
       <VBox layoutX="300.0" layoutY="93.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="75.0">
          <children>
@@ -38,7 +38,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="438.0" layoutY="225.0" mnemonicParsing="false" style="-fx-background-color: #fff;" text="OK" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="437.99999999999994" AnchorPane.rightAnchor="229.33333333333334" AnchorPane.topAnchor="204.0">
+      <Button fx:id="OKButton" layoutX="438.0" layoutY="225.0" mnemonicParsing="false" style="-fx-background-color: #fff;" text="OK" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="437.99999999999994" AnchorPane.rightAnchor="229.33333333333334" AnchorPane.topAnchor="204.0">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>

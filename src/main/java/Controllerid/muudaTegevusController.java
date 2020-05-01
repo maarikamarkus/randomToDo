@@ -34,27 +34,21 @@ public class muudaTegevusController {
         for (Tegevus tegevus : toDoList.getToDoList()) {
             muudaTegevusList.getItems().add(tegevus.getKirjeldus());
         }
-        muudaTegevuseNime(); //*/
+
+        OKButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            int valitud = muudaTegevusList.getSelectionModel().getSelectedIndex();
+            String uus = muudaTegevustText.getText();
+            Tegevus tegevus = toDoList.getToDoList().get(valitud);
+            tegevus.setKirjeldus(uus);
+            muudaTegevusList.getItems().set(valitud, uus);
+            muudaTegevustText.setText("");
+        });
 
         vaataTegevusi.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
                 liiguTegevusteVaatesse();
             } catch (IOException e) {
                 System.out.println(e.getMessage());
-            }
-        });
-    }
-
-    public void muudaTegevuseNime() {
-        String valitud = muudaTegevusList.getSelectionModel().getSelectedItem();
-        String uus = muudaTegevustText.getText();
-        OKButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            for (Tegevus tegevus : toDoList.getToDoList()) {
-                if (tegevus.getKirjeldus().equals(valitud))
-                    tegevus.setKirjeldus(uus);
-                for (Tegevus tegevus2 : toDoList.getToDoList()) {
-                    muudaTegevusList.getItems().add(tegevus2.getKirjeldus());
-                }
             }
         });
     }
