@@ -12,7 +12,7 @@
          <font>
             <Font name="System Italic" size="12.0" />
          </font></TextField>
-      <Button fx:id="lisaTegevusLisaNupp" layoutX="134.0" layoutY="142.0" mnemonicParsing="false" style="-fx-background-color: #fff;" text="Lisa!">
+      <Button fx:id="lisaTegevusLisaNupp" layoutX="134.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" style="-fx-background-color: #fff;" text="Lisa!">
          <font>
             <Font name="System Italic" size="12.0" />
          </font></Button>
@@ -20,7 +20,7 @@
          <font>
             <Font name="System Italic" size="12.0" />
          </font></Button>
-      <Label layoutX="29.0" layoutY="23.0" text="RandomToDo" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="570.0" AnchorPane.topAnchor="10.0">
+      <Label layoutX="29.0" layoutY="23.0" text="RandomToDo">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>

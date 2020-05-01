@@ -13,7 +13,8 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("vaade.fxml"));
         primaryStage.setTitle("randomToDo");
-        primaryStage.setScene(new Scene(root, 700, 400));
+        Scene scene = new Scene(root, 700, 400);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
