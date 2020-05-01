@@ -95,7 +95,6 @@ public class tegevusedController {
     }
 
     private void märgiTehtuksTegemata() {
-        System.out.println("märgiTehtuksTegemata");
         int valitudTegevus = tegevusedListView.getSelectionModel().getSelectedIndex();
         if (valitudTegevus == -1) {
             return;
@@ -108,6 +107,7 @@ public class tegevusedController {
         }
         tegevus.setTehtud(!tegevus.isTehtud());
         tegevusedListView.getItems().set(valitudTegevus, tegevus.toString());
+        tegevusedTehtudNupp.setDisable(true);
     }
 
     private void tegevusedTehtudTegemata() {
