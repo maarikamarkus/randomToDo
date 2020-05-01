@@ -37,11 +37,13 @@ public class muudaTegevusController extends Controller {
 
         OKButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             int valitud = muudaTegevusList.getSelectionModel().getSelectedIndex();
-            String uus = muudaTegevustText.getText();
-            Tegevus tegevus = toDoList.getToDoList().get(valitud);
-            tegevus.setKirjeldus(uus);
-            muudaTegevusList.getItems().set(valitud, uus);
-            muudaTegevustText.setText("");
+            if (valitud != -1) {
+                String uus = muudaTegevustText.getText();
+                Tegevus tegevus = toDoList.getToDoList().get(valitud);
+                tegevus.setKirjeldus(uus);
+                muudaTegevusList.getItems().set(valitud, uus);
+                muudaTegevustText.setText("");
+            }
         });
 
         vaataTegevusi.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
