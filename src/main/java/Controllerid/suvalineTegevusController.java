@@ -3,15 +3,9 @@ package Controllerid;
 import Other.Tegevus;
 import Other.ToDoList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -35,8 +29,7 @@ public class suvalineTegevusController extends Controller {
 
         vaataTegevusi.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             vahetaVaadet("/tegevused.fxml", vaataTegevusi);
-        }); //*/
-
+        });
     }
 
     public void annaSuvalineTegevus() {

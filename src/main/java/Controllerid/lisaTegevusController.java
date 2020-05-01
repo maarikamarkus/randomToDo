@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 public class lisaTegevusController extends Controller {
     @FXML
     private ResourceBundle resources;
@@ -42,7 +41,6 @@ public class lisaTegevusController extends Controller {
                 Other.Tegevus uusTegevus = new Other.Tegevus(lisaTegevusUusTegevusField.getText(), false);
                 toDoList.lisaToDoListi(uusTegevus);
             }
-
             vahetaVaadet("/tegevused.fxml", lisaTegevusLisaNupp);
         });
 

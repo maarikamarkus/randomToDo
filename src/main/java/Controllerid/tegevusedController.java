@@ -47,15 +47,16 @@ public class tegevusedController extends Controller {
     @FXML
     void initialize() {
 
+        // Kuvame tegevused listina vaates
         for (Tegevus tegevus : toDoList.getToDoList()) {
             tegevusedListView.getItems().add(tegevus.toString());
-        } //*/
+        }
 
         tegevusedTehtudNupp.setDisable(true);
 
         tegevusedListView.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             tegevusedTehtudTegemata();
-        }); //*/
+        });
 
         tegevusedTehtudNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             märgiTehtuksTegemata();
@@ -80,11 +81,11 @@ public class tegevusedController extends Controller {
 
     private void märgiTehtuksTegemata() {
         int valitudTegevus = tegevusedListView.getSelectionModel().getSelectedIndex();
-        if (valitudTegevus == -1) {
+        if (valitudTegevus == -1) { // ehk ei valitud mingit tegevust
             return;
         }
         Tegevus tegevus = toDoList.getToDoList().get(valitudTegevus);
-        if (tegevus.isTehtud()) {
+        if (tegevus.isTehtud()) { // nupu kiri sõltub sellest, kas tegevus on tehtud või mitte
             tegevusedTehtudNupp.setText("Tehtud!");
         } else {
             tegevusedTehtudNupp.setText("Tegemata..");

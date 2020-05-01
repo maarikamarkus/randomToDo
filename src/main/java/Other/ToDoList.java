@@ -6,14 +6,13 @@ import java.util.Scanner;
 
 public class ToDoList {
 
-    //public static List<Tegevus> toDoList;
     private List<Tegevus> toDoList = new ArrayList<>();
     private static ToDoList tegevused = null;
 
     public ToDoList() {
     }
 
-    public static ToDoList getInstance() {
+    public static ToDoList getInstance() { // nii pääseme toDoListile erinevatest controlleritest ligi
         if (tegevused == null) {
             tegevused = new ToDoList();
         }
@@ -22,10 +21,6 @@ public class ToDoList {
 
     public List<Tegevus> getToDoList() {
         return toDoList;
-    }
-
-    public void määraToDoList(ToDoList toDoList) {
-        this.toDoList = toDoList.getToDoList();
     }
 
     public void kuvaSissekanded(List<Tegevus> toDoList) {
@@ -93,10 +88,6 @@ public class ToDoList {
                 System.out.println(tegevus);
             }
         }
-    }
-
-    public void kuvaList() {
-        kuvaList(toDoList);
     }
 
     public void tegevusTehtuks(List<Tegevus> toDoList) {
@@ -204,5 +195,4 @@ public class ToDoList {
                 break;
         }
     }
-
 }
