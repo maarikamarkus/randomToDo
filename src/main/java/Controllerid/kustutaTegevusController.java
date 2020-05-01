@@ -24,6 +24,8 @@ public class kustutaTegevusController {
 
     @FXML
     private Button kustutaTegevusNäitaTegevusiNupp;
+    @FXML
+    private Button OKButton;
 
     private ToDoList toDoList = ToDoList.getInstance();
 
@@ -32,7 +34,7 @@ public class kustutaTegevusController {
 
         for (Tegevus tegevus : toDoList.getToDoList()) {
             kustutaTegevusList.getItems().add(tegevus.getKirjeldus());
-        } //*/
+        }
         kustutaTegevus();
 
         kustutaTegevusNäitaTegevusiNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -64,6 +66,15 @@ public class kustutaTegevusController {
 
     public void kustutaTegevus() {
         String valitud = kustutaTegevusList.getSelectionModel().getSelectedItem();
+        OKButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            for (Tegevus tegevus : toDoList.getToDoList()) {
+                if (tegevus.getKirjeldus().equals(valitud)) {
+                    toDoList.getToDoList().remove(tegevus);
+                    break;
+                }
+            }
+        });
+
         //tegevused.removeIf(tegevus -> tegevus.getKirjeldus().equals(valitud));
     }
 

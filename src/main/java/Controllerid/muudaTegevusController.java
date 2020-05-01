@@ -23,6 +23,8 @@ public class muudaTegevusController {
     private ListView<String> muudaTegevusList;
     @FXML
     private Button vaataTegevusi;
+    @FXML
+    private Button OKButton;
 
     private ToDoList toDoList = ToDoList.getInstance();
 
@@ -46,10 +48,15 @@ public class muudaTegevusController {
     public void muudaTegevuseNime() {
         String valitud = muudaTegevusList.getSelectionModel().getSelectedItem();
         String uus = muudaTegevustText.getText();
-        for (Tegevus tegevus : toDoList.getToDoList()) {
-            if (tegevus.getKirjeldus().equals(valitud))
-                tegevus.setKirjeldus(uus);
-        }
+        OKButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            for (Tegevus tegevus : toDoList.getToDoList()) {
+                if (tegevus.getKirjeldus().equals(valitud))
+                    tegevus.setKirjeldus(uus);
+                for (Tegevus tegevus2 : toDoList.getToDoList()) {
+                    muudaTegevusList.getItems().add(tegevus2.getKirjeldus());
+                }
+            }
+        });
     }
 
     private void liiguTegevusteVaatesse() throws IOException {
