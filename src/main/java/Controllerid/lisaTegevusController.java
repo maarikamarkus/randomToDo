@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class lisaTegevusController {
+public class lisaTegevusController extends Controller {
     @FXML
     private ResourceBundle resources;
 
@@ -43,40 +43,11 @@ public class lisaTegevusController {
                 toDoList.lisaToDoListi(uusTegevus);
             }
 
-            try {
-                liiguTegevusteVaatesse();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            vahetaVaadet("/tegevused.fxml", lisaTegevusLisaNupp);
         });
 
         lisaTegevusVaataTegevusiNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            try {
-                liiguTegevusteVaatesse();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            vahetaVaadet("/tegevused.fxml", lisaTegevusVaataTegevusiNupp);
         });
     }
-
-    private void liiguTegevusteVaatesse() throws IOException {
-        lisaTegevusLisaNupp.getScene().getWindow().hide();
-        FXMLLoader laadija = new FXMLLoader();
-        laadija.setLocation(getClass().getResource("/tegevused.fxml"));
-        //laadija.setLocation(getClass().getResource());
-
-        try {
-            laadija.load();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-        Parent root = laadija.getRoot();
-        Stage stage = new Stage();
-        stage.setTitle("randomToDo");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-
 }

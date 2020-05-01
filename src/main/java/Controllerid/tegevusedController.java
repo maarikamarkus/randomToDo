@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class tegevusedController {
+public class tegevusedController extends Controller {
     @FXML
     private ResourceBundle resources;
 
@@ -62,35 +62,19 @@ public class tegevusedController {
         });
 
         tegevusedLisaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            try {
-                vahetaVaadet("/lisaTegevus.fxml", tegevusedLisaLabel);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            vahetaVaadet("/lisaTegevus.fxml", tegevusedLisaLabel);
         });
 
         tegevusedMuudaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            try {
-                vahetaVaadet("/muudaTegevus.fxml", tegevusedMuudaLabel);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            vahetaVaadet("/muudaTegevus.fxml", tegevusedMuudaLabel);
         });
 
         tegevusedSuvalineLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            try {
-                vahetaVaadet("/suvalineTegevus.fxml", tegevusedSuvalineLabel);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            vahetaVaadet("/suvalineTegevus.fxml", tegevusedSuvalineLabel);
         });
 
         tegevusedKustutaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            try {
-                vahetaVaadet("/kustutaTegevus.fxml", tegevusedKustutaLabel);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            vahetaVaadet("/kustutaTegevus.fxml", tegevusedKustutaLabel);
         });
     }
 
@@ -122,35 +106,4 @@ public class tegevusedController {
             tegevusedTehtudNupp.setText("Tehtud!");
         }
     }
-
-    public void vahetaVaadet(String asukoht, Label label) throws IOException {
-        label.getScene().getWindow().hide();
-        FXMLLoader laadija = new FXMLLoader();
-        laadija.setLocation(getClass().getResource(asukoht));
-
-        try {
-            laadija.load();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-        Parent root = laadija.getRoot();
-        Stage stage = new Stage();
-        stage.setTitle(asukoht.substring(1, asukoht.length()-5));
-        stage.setScene(new Scene(root)); //*/
-        //stage.showAndWait();
-        stage.show();
-
-    }
-
-    // label.getScene().getWindow().hide();
-    // FXMLLoader loader = new FXMLLoader();
-    // loader.setLocation(getClass().getResource(fxml));
-    // try { loader.load() } catch (IOException e) { sout }
-    // Parent root = loader.getRoot();
-    // Stage stage = new Stage();
-    // stage.setScene(new Scene(root));
-    // stage.showAndWait();
-    // g
-
 }

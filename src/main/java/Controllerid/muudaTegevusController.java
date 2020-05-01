@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-public class muudaTegevusController {
+public class muudaTegevusController extends Controller {
 
     @FXML
     private TextField muudaTegevustText;
@@ -45,30 +45,7 @@ public class muudaTegevusController {
         });
 
         vaataTegevusi.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            try {
-                liiguTegevusteVaatesse();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            vahetaVaadet("/tegevused.fxml", vaataTegevusi);
         });
     }
-
-    private void liiguTegevusteVaatesse() throws IOException {
-        vaataTegevusi.getScene().getWindow().hide();
-        FXMLLoader laadija = new FXMLLoader();
-        laadija.setLocation(getClass().getResource("/tegevused.fxml"));
-        //laadija.setLocation(getClass().getResource());
-
-        try {
-            laadija.load();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-        Parent root = laadija.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
 }

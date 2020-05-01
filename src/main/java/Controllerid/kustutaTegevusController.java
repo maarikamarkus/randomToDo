@@ -15,9 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-public class kustutaTegevusController {
-
-    //private static List<Tegevus> tegevused = ToDoList.toDoList;
+public class kustutaTegevusController extends Controller {
 
     @FXML
     ListView<String> kustutaTegevusList;
@@ -43,30 +41,7 @@ public class kustutaTegevusController {
         });
 
         kustutaTegevusNäitaTegevusiNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            try {
-                näitaTegevusi();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            vahetaVaadet("/tegevused.fxml", kustutaTegevusNäitaTegevusiNupp);
         });
     }
-
-    private void näitaTegevusi() throws IOException {
-        kustutaTegevusNäitaTegevusiNupp.getScene().getWindow().hide();
-        FXMLLoader laadija = new FXMLLoader();
-        laadija.setLocation(getClass().getResource("/tegevused.fxml"));
-
-        try {
-            laadija.load();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-        Parent root = laadija.getRoot();
-        Stage stage = new Stage();
-        stage.setTitle("randomToDo");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
 }

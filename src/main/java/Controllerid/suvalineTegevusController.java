@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class suvalineTegevusController {
+public class suvalineTegevusController extends Controller {
 
     @FXML
     private Button suvalineTegevusNupp;
@@ -34,31 +34,9 @@ public class suvalineTegevusController {
         });
 
         vaataTegevusi.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            try {
-                liiguTegevusteVaatesse();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            vahetaVaadet("/tegevused.fxml", vaataTegevusi);
         }); //*/
 
-    }
-
-    public void liiguTegevusteVaatesse() throws IOException {
-        vaataTegevusi.getScene().getWindow().hide();
-        FXMLLoader laadija = new FXMLLoader();
-        laadija.setLocation(getClass().getResource("/tegevused.fxml"));
-
-        try {
-            laadija.load();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-        Parent root = laadija.getRoot();
-        Stage stage = new Stage();
-        stage.setTitle("randomToDo");
-        stage.setScene(new Scene(root));
-        stage.show();//*/
     }
 
     public void annaSuvalineTegevus() {
@@ -80,5 +58,4 @@ public class suvalineTegevusController {
             }
         }
     }
-
 }
