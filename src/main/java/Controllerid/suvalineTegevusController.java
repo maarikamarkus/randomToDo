@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class suvalineTegevusController {
 
@@ -75,7 +76,7 @@ public class suvalineTegevusController {
             if (tegemata.size() == 0) {
                 näitaTegevustText.setText("Sul on kõik tehtud! Puhka või lisa uus tegevus.");
             } else {
-                Tegevus suvaline = tegemata.get((int) (Math.random()*tegevusi+1));
+                Tegevus suvaline = tegemata.get(new Random().nextInt(tegevusi));
                 näitaTegevustText.setText("Järgmisena tee: " + suvaline.getKirjeldus());
             }
         }
