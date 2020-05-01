@@ -1,7 +1,5 @@
 package Controllerid;
 
-import Other.ToDoList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,7 +37,7 @@ public class lisaTegevusController {
             String tegevuseKirjeldus = lisaTegevusUusTegevusField.getText();
             if (!tegevuseKirjeldus.equals("")) {
                 Other.Tegevus uusTegevus = new Other.Tegevus(lisaTegevusUusTegevusField.getText(), false);
-                
+
             }
 
             try {
@@ -75,6 +73,7 @@ public class lisaTegevusController {
 
         Parent root = laadija.getRoot();
         Stage stage = new Stage();
+        stage.setTitle("randomToDo");
         stage.setScene(new Scene(root));
         stage.showAndWait();
     }

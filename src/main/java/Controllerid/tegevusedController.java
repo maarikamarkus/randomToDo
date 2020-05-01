@@ -2,6 +2,7 @@ package Controllerid;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -35,7 +36,7 @@ public class tegevusedController {
     void initialize() {
         tegevusedLisaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
-                vahetaVaadet("/lisaTegevus.fxml");
+                vahetaVaadet("/lisaTegevus.fxml", tegevusedLisaLabel);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             } //*/
@@ -44,7 +45,7 @@ public class tegevusedController {
 
         tegevusedMuudaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
-                vahetaVaadet("/muudaTegevus.fxml");
+                vahetaVaadet("/muudaTegevus.fxml", tegevusedMuudaLabel);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
@@ -53,7 +54,7 @@ public class tegevusedController {
 
         tegevusedSuvalineLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
-                vahetaVaadet("/suvalineTegevus.fxml");
+                vahetaVaadet("/suvalineTegevus.fxml", tegevusedSuvalineLabel);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
@@ -62,7 +63,7 @@ public class tegevusedController {
 
         tegevusedKustutaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
-                vahetaVaadet("/kustutaTegevus.fxml");
+                vahetaVaadet("/kustutaTegevus.fxml", tegevusedKustutaLabel);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
@@ -70,8 +71,8 @@ public class tegevusedController {
         });
     }
 
-    public void vahetaVaadet(String asukoht) throws IOException {
-        tegevusedLisaLabel.getScene().getWindow().hide();
+    public void vahetaVaadet(String asukoht, Label label) throws IOException {
+        label.getScene().getWindow().hide();
         FXMLLoader laadija = new FXMLLoader();
         laadija.setLocation(getClass().getResource(asukoht));
 
@@ -83,8 +84,11 @@ public class tegevusedController {
 
         Parent root = laadija.getRoot();
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
+        stage.setTitle(asukoht.substring(1, asukoht.length()-5));
+        stage.setScene(new Scene(root)); //*/
+        //stage.showAndWait();
+        stage.show();
+
     }
 
 
