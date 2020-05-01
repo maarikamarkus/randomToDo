@@ -143,7 +143,6 @@ public class tegevusedController {
 
     }
 
-
     // label.getScene().getWindow().hide();
     // FXMLLoader loader = new FXMLLoader();
     // loader.setLocation(getClass().getResource(fxml));

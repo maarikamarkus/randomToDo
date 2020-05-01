@@ -35,7 +35,12 @@ public class kustutaTegevusController {
         for (Tegevus tegevus : toDoList.getToDoList()) {
             kustutaTegevusList.getItems().add(tegevus.getKirjeldus());
         }
-        kustutaTegevus();
+
+        OKButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            int valitud = kustutaTegevusList.getSelectionModel().getSelectedIndex();
+            toDoList.getToDoList().remove(valitud);
+            kustutaTegevusList.getItems().remove(valitud);
+        });
 
         kustutaTegevusNäitaTegevusiNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             try {
@@ -62,20 +67,6 @@ public class kustutaTegevusController {
         stage.setTitle("randomToDo");
         stage.setScene(new Scene(root));
         stage.show();
-    }
-
-    public void kustutaTegevus() {
-        String valitud = kustutaTegevusList.getSelectionModel().getSelectedItem();
-        OKButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            for (Tegevus tegevus : toDoList.getToDoList()) {
-                if (tegevus.getKirjeldus().equals(valitud)) {
-                    toDoList.getToDoList().remove(tegevus);
-                    break;
-                }
-            }
-        });
-
-        //tegevused.removeIf(tegevus -> tegevus.getKirjeldus().equals(valitud));
     }
 
 }
