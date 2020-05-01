@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class suvalineTegevusController {
@@ -40,7 +39,7 @@ public class suvalineTegevusController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-        });
+        }); //*/
 
     }
 
@@ -59,7 +58,7 @@ public class suvalineTegevusController {
         Stage stage = new Stage();
         stage.setTitle("randomToDo");
         stage.setScene(new Scene(root));
-        stage.show();
+        stage.show();//*/
     }
 
     public void annaSuvalineTegevus() {
@@ -76,7 +75,7 @@ public class suvalineTegevusController {
             if (tegemata.size() == 0) {
                 näitaTegevustText.setText("Sul on kõik tehtud! Puhka või lisa uus tegevus.");
             } else {
-                Tegevus suvaline = tegemata.get(new Random().nextInt(tegevusi));
+                Tegevus suvaline = tegemata.get(new Random().nextInt(tegemata.size()));
                 näitaTegevustText.setText("Järgmisena tee: " + suvaline.getKirjeldus());
             }
         }

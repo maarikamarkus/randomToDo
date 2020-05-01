@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -36,6 +37,9 @@ public class tegevusedController {
     private Label tegevusedKustutaLabel;
 
     @FXML
+    private Button tegevusedTehtudNupp;
+
+    @FXML
     private ListView<String> tegevusedListView;
 
     private ToDoList toDoList = ToDoList.getInstance();
@@ -47,13 +51,22 @@ public class tegevusedController {
             tegevusedListView.getItems().add(tegevus.toString());
         } //*/
 
+        tegevusedTehtudNupp.setDisable(true);
+
+        tegevusedListView.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            tegevusedTehtudTegemata();
+        }); //*/
+
+        tegevusedTehtudNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            märgiTehtuksTegemata();
+        });
+
         tegevusedLisaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
                 vahetaVaadet("/lisaTegevus.fxml", tegevusedLisaLabel);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan listi vaates uut tegevust lisada");
         });
 
         tegevusedMuudaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -62,7 +75,6 @@ public class tegevusedController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan mingit tegevust muuta");
         });
 
         tegevusedSuvalineLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -71,7 +83,6 @@ public class tegevusedController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan suvalist tegevust");
         });
 
         tegevusedKustutaLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -80,8 +91,36 @@ public class tegevusedController {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("tahan mingit tegevust kustutada");
         });
+    }
+
+    private void märgiTehtuksTegemata() {
+        int valitudTegevus = tegevusedListView.getSelectionModel().getSelectedIndex();
+        if (valitudTegevus == -1) {
+            return;
+        }
+        Tegevus tegevus = toDoList.getToDoList().get(valitudTegevus);
+        if (tegevus.isTehtud()) {
+            tegevusedTehtudNupp.setText("Tehtud!");
+        } else {
+            tegevusedTehtudNupp.setText("Tegemata..");
+        }
+        tegevus.setTehtud(!tegevus.isTehtud());
+        tegevusedListView.getItems().set(valitudTegevus, tegevus.toString());
+        tegevusedTehtudNupp.setDisable(true);
+    }
+
+    private void tegevusedTehtudTegemata() {
+        int valitudTegevus = tegevusedListView.getSelectionModel().getSelectedIndex();
+        if (valitudTegevus == -1) {
+            return;
+        }
+        tegevusedTehtudNupp.setDisable(false);
+        if (toDoList.getToDoList().get(valitudTegevus).isTehtud()) {
+            tegevusedTehtudNupp.setText("Tegemata..");
+        } else {
+            tegevusedTehtudNupp.setText("Tehtud!");
+        }
     }
 
     public void vahetaVaadet(String asukoht, Label label) throws IOException {
