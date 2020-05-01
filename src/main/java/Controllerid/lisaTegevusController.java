@@ -40,7 +40,6 @@ public class lisaTegevusController {
             String tegevuseKirjeldus = lisaTegevusUusTegevusField.getText();
             if (!tegevuseKirjeldus.equals("")) {
                 Other.Tegevus uusTegevus = new Other.Tegevus(lisaTegevusUusTegevusField.getText(), false);
-                // vaja see kuskile lisada ka, kuhu teeme toDoList isendi?
                 toDoList.lisaToDoListi(uusTegevus);
             }
 
@@ -76,7 +75,7 @@ public class lisaTegevusController {
         Stage stage = new Stage();
         stage.setTitle("randomToDo");
         stage.setScene(new Scene(root));
-        stage.showAndWait();
+        stage.show();
     }
 
 
