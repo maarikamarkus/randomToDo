@@ -36,8 +36,10 @@ public class kustutaTegevusController extends Controller {
 
         OKButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             int valitud = kustutaTegevusList.getSelectionModel().getSelectedIndex();
-            toDoList.getToDoList().remove(valitud);
-            kustutaTegevusList.getItems().remove(valitud);
+            if (valitud != -1) {
+                toDoList.getToDoList().remove(valitud);
+                kustutaTegevusList.getItems().remove(valitud);
+            }
         });
 
         kustutaTegevusNäitaTegevusiNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
