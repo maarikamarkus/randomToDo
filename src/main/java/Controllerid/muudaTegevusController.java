@@ -17,8 +17,6 @@ import java.util.List;
 
 public class muudaTegevusController {
 
-    private static List<Tegevus> tegevused = ToDoList.toDoList;
-
     @FXML
     private TextField muudaTegevustText;
     @FXML
@@ -26,12 +24,15 @@ public class muudaTegevusController {
     @FXML
     private Button vaataTegevusi;
 
+    private ToDoList toDoList = ToDoList.getInstance();
+
     @FXML
     void initialize() {
-        for (Tegevus tegevus : tegevused) {
+
+        for (Tegevus tegevus : toDoList.getToDoList()) {
             muudaTegevusList.getItems().add(tegevus.getKirjeldus());
         }
-        muudaTegevuseNime();
+        muudaTegevuseNime(); //*/
 
         vaataTegevusi.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
@@ -45,7 +46,7 @@ public class muudaTegevusController {
     public void muudaTegevuseNime() {
         String valitud = muudaTegevusList.getSelectionModel().getSelectedItem();
         String uus = muudaTegevustText.getText();
-        for (Tegevus tegevus : tegevused) {
+        for (Tegevus tegevus : toDoList.getToDoList()) {
             if (tegevus.getKirjeldus().equals(valitud))
                 tegevus.setKirjeldus(uus);
         }

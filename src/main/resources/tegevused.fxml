@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllerid.tegevusedController">
@@ -9,18 +11,36 @@
       <Label fx:id="tegevusedLisaLabel" alignment="CENTER" layoutX="23.0" layoutY="26.0" prefHeight="24.0" prefWidth="154.0" style="-fx-background-color: #1AF;" text="LISA TEGEVUS" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="12.0" />
-         </font></Label>
+         </font>
+      </Label>
       <Label fx:id="tegevusedMuudaLabel" alignment="CENTER" layoutX="518.0" layoutY="26.0" prefHeight="24.0" prefWidth="162.0" style="-fx-background-color: #1AF;" text="MUUDA TEGEVUST" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="12.0" />
-         </font></Label>
+         </font>
+      </Label>
       <Label fx:id="tegevusedSuvalineLabel" alignment="CENTER" layoutX="350.0" layoutY="26.0" prefHeight="24.0" prefWidth="162.0" style="-fx-background-color: #1AF;" text="SUVALINE TEGEVUS" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="12.0" />
-         </font></Label>
+         </font>
+      </Label>
       <Label fx:id="tegevusedKustutaLabel" alignment="CENTER" layoutX="182.0" layoutY="26.0" prefHeight="24.0" prefWidth="162.0" style="-fx-background-color: #1AF;" text="KUSTUTA TEGEVUS" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="12.0" />
-         </font></Label>
+         </font>
+      </Label>
+      <AnchorPane layoutX="-3.0" layoutY="79.0" prefHeight="313.0" prefWidth="700.0">
+         <children>
+            <VBox layoutX="202.0" layoutY="14.0" prefHeight="299.0" prefWidth="296.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="333.0" text="TEGEVUSED">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="tegevusedListView" prefHeight="307.0" prefWidth="296.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

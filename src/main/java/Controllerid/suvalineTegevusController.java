@@ -14,10 +14,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class suvalineTegevusController {
-
-    private static List<Tegevus> tegevused = ToDoList.toDoList;
 
     @FXML
     private Button suvalineTegevusNupp;
@@ -25,6 +24,8 @@ public class suvalineTegevusController {
     private Button vaataTegevusi;
     @FXML
     private TextField näitaTegevustText;
+
+    private ToDoList toDoList = ToDoList.getInstance();
 
     @FXML
     void initialize() {
@@ -62,12 +63,12 @@ public class suvalineTegevusController {
     }
 
     public void annaSuvalineTegevus() {
-        int tegevusi = tegevused.size();
+        int tegevusi = toDoList.tegevusiListis();
         if (tegevusi == 0) {
             näitaTegevustText.setText("Sisesta enne listi mõned tegevused.");
         } else {
             ArrayList<Tegevus> tegemata = new ArrayList<>();
-            for (Tegevus tegevus : tegevused) {
+            for (Tegevus tegevus : toDoList.getToDoList()) {
                 if (!tegevus.isTehtud()) {
                     tegemata.add(tegevus);
                 }
@@ -75,7 +76,7 @@ public class suvalineTegevusController {
             if (tegemata.size() == 0) {
                 näitaTegevustText.setText("Sul on kõik tehtud! Puhka või lisa uus tegevus.");
             } else {
-                Tegevus suvaline = tegemata.get((int) (Math.random()*tegevusi+1));
+                Tegevus suvaline = tegemata.get(new Random().nextInt(tegevusi));
                 näitaTegevustText.setText("Järgmisena tee: " + suvaline.getKirjeldus());
             }
         }

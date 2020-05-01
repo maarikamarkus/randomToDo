@@ -17,20 +17,22 @@ import java.util.List;
 
 public class kustutaTegevusController {
 
-    private static List<Tegevus> tegevused = ToDoList.toDoList;
+    //private static List<Tegevus> tegevused = ToDoList.toDoList;
 
     @FXML
     ListView<String> kustutaTegevusList;
 
-
     @FXML
     private Button kustutaTegevusNäitaTegevusiNupp;
 
+    private ToDoList toDoList = ToDoList.getInstance();
+
     @FXML
     void initialize() {
-        for (Tegevus tegevus : tegevused) {
+
+        for (Tegevus tegevus : toDoList.getToDoList()) {
             kustutaTegevusList.getItems().add(tegevus.getKirjeldus());
-        }
+        } //*/
         kustutaTegevus();
 
         kustutaTegevusNäitaTegevusiNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -62,7 +64,7 @@ public class kustutaTegevusController {
 
     public void kustutaTegevus() {
         String valitud = kustutaTegevusList.getSelectionModel().getSelectedItem();
-        tegevused.removeIf(tegevus -> tegevus.getKirjeldus().equals(valitud));
+        //tegevused.removeIf(tegevus -> tegevus.getKirjeldus().equals(valitud));
     }
 
 }
