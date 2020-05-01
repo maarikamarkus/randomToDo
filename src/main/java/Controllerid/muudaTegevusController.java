@@ -66,7 +66,7 @@ public class muudaTegevusController {
         Parent root = laadija.getRoot();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        stage.showAndWait();
+        stage.show();
     }
 
 }
