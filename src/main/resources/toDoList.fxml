@@ -22,7 +22,7 @@
                   <Insets left="5.0" />
                </VBox.margin>
             </Label>
-            <ListView prefHeight="336.0" prefWidth="355.0" style="-fx-background-color: #FFF;">
+            <ListView fx:id="toDoListTegevusedListview" prefHeight="336.0" prefWidth="355.0" style="-fx-background-color: #FFF;">
                <VBox.margin>
                   <Insets left="5.0" />
                </VBox.margin></ListView>

@@ -10,6 +10,7 @@ import Other.ToDoList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -43,6 +44,9 @@ public class toDoListController extends Controller{
     private Button toDoListLisaNupp;
 
     @FXML
+    private ListView<String> toDoListTegevusedListview;
+
+    @FXML
     private Label randomToDoSuvalineLabel;
 
     @FXML
@@ -52,10 +56,95 @@ public class toDoListController extends Controller{
 
     @FXML
     void initialize() {
+
+        for (Tegevus tegevus : toDoList.getToDoList()) {
+            toDoListTegevusedListview.getItems().add(tegevus.toString());
+        }
+
         toDoListRandomToDoLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             annaSuvalineTegevus();
         });
 
+        toDoListTehtudNupp.setDisable(true);
+        toDoListMuudaNupp.setVisible(false);
+        toDoListMuudaTextfield.setVisible(false);
+        toDoListKustutaNupp.setVisible(false);
+        toDoListUusTegevusTextfield.setVisible(false);
+        toDoListLisaNupp.setVisible(false);//*/
+
+        toDoListTegevusedListview.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            valitudTegevus();
+        });
+
+        toDoListTehtudNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            märgiTehtuksTegemata();
+        });
+
+        toDoListMuudaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            toDoListMuudaTextfield.setVisible(true);
+            //muudaTegevust(); // prg proovin ilma abimeetodita
+            String uus = toDoListUusTegevusTextfield.getText();
+            int valitud = toDoListTegevusedListview.getSelectionModel().getSelectedIndex();
+            if (!uus.equals("")) {
+                if (valitud != -1) {
+                    Tegevus tegevus = toDoList.getToDoList().get(valitud);
+                    tegevus.setKirjeldus(uus);
+                    toDoListTegevusedListview.getItems().set(valitud, tegevus.toString());
+                    toDoListUusTegevusTextfield.setText("");
+                }
+            }
+        });
+
+
+    }
+
+    private void muudaTegevust() {
+        String uus = toDoListUusTegevusTextfield.getText();
+        int valitud = toDoListTegevusedListview.getSelectionModel().getSelectedIndex();
+        if (!uus.equals("")) {
+            if (valitud != -1) {
+                Tegevus tegevus = toDoList.getToDoList().get(valitud);
+                tegevus.setKirjeldus(uus);
+                toDoListTegevusedListview.getItems().set(valitud, tegevus.toString());
+                toDoListUusTegevusTextfield.setText("");
+                //toDoListTegevusedListview.getItems().set(valitud, tegevus.toString());
+            }
+        } else {
+            return;
+        }
+    }
+
+    private void valitudTegevus() {
+        int valitudTegevus = toDoListTegevusedListview.getSelectionModel().getSelectedIndex();
+        if (valitudTegevus == -1) {
+            return;
+        }
+        toDoListTehtudNupp.setDisable(false);
+        if (toDoList.getToDoList().get(valitudTegevus).isTehtud()) {
+            toDoListTehtudNupp.setText("Tegemata..");
+        } else {
+            toDoListTehtudNupp.setText("Tehtud!");
+        }
+
+        toDoListMuudaNupp.setVisible(true);
+
+    }
+
+    private void märgiTehtuksTegemata() {
+        int valitudTegevus = toDoListTegevusedListview.getSelectionModel().getSelectedIndex();
+        if (valitudTegevus == -1) { // ehk ei valitud mingit tegevust
+            return;
+        }
+
+        Tegevus tegevus = toDoList.getToDoList().get(valitudTegevus);
+        if (tegevus.isTehtud()) { // nupu kiri sõltub sellest, kas tegevus on tehtud või mitte
+            toDoListTehtudNupp.setText("Tehtud!");
+        } else {
+            toDoListTehtudNupp.setText("Tegemata..");
+        }
+        tegevus.setTehtud(!tegevus.isTehtud());
+        toDoListTegevusedListview.getItems().set(valitudTegevus, tegevus.toString());
+        //toDoListTegevusedListview.setDisable(true);
     }
 
     public void annaSuvalineTegevus() {
