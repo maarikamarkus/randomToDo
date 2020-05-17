@@ -41,11 +41,14 @@ public class lisaTegevusController extends Controller {
                 Other.Tegevus uusTegevus = new Other.Tegevus(lisaTegevusUusTegevusField.getText(), false);
                 toDoList.lisaToDoListi(uusTegevus);
             }
-            vahetaVaadet("/tegevused.fxml", lisaTegevusLisaNupp);
+            //vahetaVaadet("/tegevused.fxml", lisaTegevusLisaNupp);
+            vahetaVaadet("/toDoList.fxml", lisaTegevusLisaNupp);
         });
 
         lisaTegevusVaataTegevusiNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            vahetaVaadet("/tegevused.fxml", lisaTegevusVaataTegevusiNupp);
+            //vahetaVaadet("/tegevused.fxml", lisaTegevusVaataTegevusiNupp);
+            vahetaVaadet("/toDoList.fxml", lisaTegevusVaataTegevusiNupp);
+
         });
     }
 }
