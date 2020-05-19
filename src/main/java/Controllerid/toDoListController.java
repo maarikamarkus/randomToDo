@@ -164,7 +164,8 @@ public class toDoListController extends Controller{
                 randomToDoSuvalineLabel.setText("Sul on kõik tehtud! Puhka või lisa uus tegevus.");
             } else {
                 Tegevus suvaline = tegemata.get(new Random().nextInt(tegemata.size()));
-                randomToDoSuvalineLabel.setText("Järgmisena tee: " + suvaline.getKirjeldus());
+                randomToDoSuvalineLabel.setText("Järgmisena tee: " + suvaline.getKirjeldus() +
+                        "\n(kui soovid uut suvalist tegevust, vajuta randomToDo peale)");
             }
         }
     }

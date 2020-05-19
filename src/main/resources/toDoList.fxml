@@ -94,16 +94,16 @@
       </VBox>
    </right>
    <top>
-      <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="87.0" prefWidth="700.0" style="-fx-background-color: #FFF;" BorderPane.alignment="TOP_CENTER">
+      <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="122.0" prefWidth="700.0" style="-fx-background-color: #FFF;" BorderPane.alignment="TOP_CENTER">
          <children>
             <Label fx:id="toDoListRandomToDoLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="72.0" prefWidth="700.0" style="-fx-background-color: #1AF;" text="randomToDo" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="randomToDoSuvalineLabel" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="695.0" style="-fx-background-color: #FFF;" text="Kui soovid suvalist tegevust, vajuta randomToDo peale." VBox.vgrow="ALWAYS">
+            <Label fx:id="randomToDoSuvalineLabel" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="695.0" style="-fx-background-color: #FFF;" text="Kui soovid suvalist tegevust, vajuta randomToDo peale." VBox.vgrow="ALWAYS">
                <font>
-                  <Font name="System Italic" size="14.0" />
+                  <Font name="System Italic" size="16.0" />
                </font>
                <VBox.margin>
                   <Insets left="5.0" />
