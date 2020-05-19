@@ -110,6 +110,7 @@ public class toDoListController extends Controller{
                 Other.Tegevus uusTegevus = new Other.Tegevus(tegevuseKirjeldus, false);
                 toDoList.lisaToDoListi(uusTegevus);
                 toDoListTegevusedListview.getItems().add(uusTegevus.toString());
+                toDoListUusTegevusTextfield.setText("");
             }
         });
     }
