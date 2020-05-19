@@ -92,6 +92,28 @@ public class toDoListController extends Controller{
                 toDoListMuudaTextfield.setText("");
             }
         });
+
+        toDoListKustutaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            int valitud = toDoListTegevusedListview.getSelectionModel().getSelectedIndex();
+            if (valitud != -1) {
+                toDoList.getToDoList().remove(valitud);
+                toDoListTegevusedListview.getItems().remove(valitud);
+            }
+        });
+
+        toDoListLisaUusNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            toDoListUusTegevusTextfield.setVisible(true);
+            toDoListLisaNupp.setVisible(true);
+        });
+
+        toDoListLisaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            String tegevuseKirjeldus = toDoListUusTegevusTextfield.getText();
+            if (!tegevuseKirjeldus.equals("")) {
+                Other.Tegevus uusTegevus = new Other.Tegevus(tegevuseKirjeldus, false);
+                toDoList.lisaToDoListi(uusTegevus);
+                toDoListTegevusedListview.getItems().add(uusTegevus.toString());
+            }
+        });
     }
 
     private void valitudTegevus() {
