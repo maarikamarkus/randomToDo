@@ -7,11 +7,13 @@ import java.util.ResourceBundle;
 
 import Other.Tegevus;
 import Other.ToDoList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class toDoListController extends Controller{
@@ -81,37 +83,15 @@ public class toDoListController extends Controller{
         });
 
         toDoListMuudaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            toDoListMuudaTextfield.setVisible(true);
-            //muudaTegevust(); // prg proovin ilma abimeetodita
-            String uus = toDoListUusTegevusTextfield.getText();
             int valitud = toDoListTegevusedListview.getSelectionModel().getSelectedIndex();
-            if (!uus.equals("")) {
-                if (valitud != -1) {
-                    Tegevus tegevus = toDoList.getToDoList().get(valitud);
-                    tegevus.setKirjeldus(uus);
-                    toDoListTegevusedListview.getItems().set(valitud, tegevus.toString());
-                    toDoListUusTegevusTextfield.setText("");
-                }
-            }
-        });
-
-
-    }
-
-    private void muudaTegevust() {
-        String uus = toDoListUusTegevusTextfield.getText();
-        int valitud = toDoListTegevusedListview.getSelectionModel().getSelectedIndex();
-        if (!uus.equals("")) {
             if (valitud != -1) {
+                String uus = toDoListMuudaTextfield.getText();
                 Tegevus tegevus = toDoList.getToDoList().get(valitud);
                 tegevus.setKirjeldus(uus);
                 toDoListTegevusedListview.getItems().set(valitud, tegevus.toString());
-                toDoListUusTegevusTextfield.setText("");
-                //toDoListTegevusedListview.getItems().set(valitud, tegevus.toString());
+                toDoListMuudaTextfield.setText("");
             }
-        } else {
-            return;
-        }
+        });
     }
 
     private void valitudTegevus() {
@@ -119,15 +99,17 @@ public class toDoListController extends Controller{
         if (valitudTegevus == -1) {
             return;
         }
+
         toDoListTehtudNupp.setDisable(false);
+        toDoListMuudaNupp.setVisible(true);
+        toDoListMuudaTextfield.setVisible(true);
+        toDoListKustutaNupp.setVisible(true);
+
         if (toDoList.getToDoList().get(valitudTegevus).isTehtud()) {
             toDoListTehtudNupp.setText("Tegemata..");
         } else {
             toDoListTehtudNupp.setText("Tehtud!");
         }
-
-        toDoListMuudaNupp.setVisible(true);
-
     }
 
     private void märgiTehtuksTegemata() {
@@ -144,7 +126,6 @@ public class toDoListController extends Controller{
         }
         tegevus.setTehtud(!tegevus.isTehtud());
         toDoListTegevusedListview.getItems().set(valitudTegevus, tegevus.toString());
-        //toDoListTegevusedListview.setDisable(true);
     }
 
     public void annaSuvalineTegevus() {
