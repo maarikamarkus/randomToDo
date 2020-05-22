@@ -28,6 +28,9 @@ public class muudaTegevusController extends Controller {
 
     private ToDoList toDoList = ToDoList.getInstance();
 
+    public muudaTegevusController() throws IOException {
+    }
+
     @FXML
     void initialize() {
 

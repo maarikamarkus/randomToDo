@@ -27,6 +27,9 @@ public class kustutaTegevusController extends Controller {
 
     private ToDoList toDoList = ToDoList.getInstance();
 
+    public kustutaTegevusController() throws IOException {
+    }
+
     @FXML
     void initialize() {
 

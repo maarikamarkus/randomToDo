@@ -1,5 +1,9 @@
 package Other;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,14 +12,41 @@ public class ToDoList {
 
     private List<Tegevus> toDoList = new ArrayList<>();
     private static ToDoList tegevused = null;
+    public static File randomToDoFail = new File(rajaLeidja()+"\\randomToDoFail.txt");
 
     public ToDoList() {
     }
 
-    public static ToDoList getInstance() { // nii pääseme toDoListile erinevatest controlleritest ligi
-        if (tegevused == null) {
-            tegevused = new ToDoList();
+    //leiame programmi asukoha tee
+    private static String rajaLeidja() {
+        Path praegune = Paths.get("");
+        return praegune.toAbsolutePath().toString();
+    }
+
+    //lisame failis olevad tegevused to-do-listi või loome uue faili
+    private static void failistToDoListi() throws IOException {
+        if (randomToDoFail.exists()) {
+            Scanner sc = new Scanner(randomToDoFail, StandardCharsets.UTF_8);
+            while (sc.hasNextLine()) {
+                String[] jupid = sc.nextLine().split(" ");
+                Tegevus uus = new Tegevus();
+                if (jupid[1].equals("true")) {
+                    uus = new Tegevus(jupid[0], true);
+                }
+                else if (jupid[1].equals("false")) {
+                    uus = new Tegevus(jupid[0], false);
+                }
+                tegevused.lisaToDoListi(uus);
+            }
         }
+        else {
+            randomToDoFail.createNewFile();
+        }
+    }
+
+    public static ToDoList getInstance() throws IOException { // nii pääseme toDoListile erinevatest controlleritest ligi
+        tegevused = new ToDoList();
+        failistToDoListi();
         return tegevused;
     }
 
@@ -54,7 +85,10 @@ public class ToDoList {
         System.out.println("Lõpetasid tegevuste lisamise.");
     }
 
-    public void lisaToDoListi(Tegevus tegevus) {
+    public void lisaToDoListi(Tegevus tegevus) throws IOException {
+        try (PrintWriter pw = new PrintWriter(randomToDoFail, StandardCharsets.UTF_8)) {
+            pw.write(tegevus.getKirjeldus() + " " + tegevus.isTehtud());
+        }
         toDoList.add(tegevus);
     }
 

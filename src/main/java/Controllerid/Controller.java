@@ -6,8 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Controller {
+
 
     public static void vahetaVaadet(String asukoht, Node node) {
         // Peidame praegu kuvatava akna

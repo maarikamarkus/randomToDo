@@ -1,7 +1,10 @@
 package Controllerid;
 
+import java.io.*;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -54,6 +57,9 @@ public class toDoListController extends Controller{
 
     private ToDoList toDoList = ToDoList.getInstance();
 
+    public toDoListController() throws IOException {
+    }
+
     @FXML
     void initialize() {
 
@@ -77,7 +83,11 @@ public class toDoListController extends Controller{
         });
 
         toDoListTehtudNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            märgiTehtuksTegemata();
+            try {
+                märgiTehtuksTegemata();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         toDoListMuudaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -89,6 +99,16 @@ public class toDoListController extends Controller{
                 toDoListTegevusedListview.getItems().set(valitud, tegevus.toString());
                 toDoListMuudaTextfield.setText("");
             }
+            try {
+                new FileOutputStream(ToDoList.randomToDoFail).close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                uuedTegevusedFaili(ToDoList.randomToDoFail);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         toDoListKustutaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -96,6 +116,16 @@ public class toDoListController extends Controller{
             if (valitud != -1) {
                 toDoList.getToDoList().remove(valitud);
                 toDoListTegevusedListview.getItems().remove(valitud);
+            }
+            try {
+                new FileOutputStream(ToDoList.randomToDoFail).close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                uuedTegevusedFaili(ToDoList.randomToDoFail);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
 
@@ -108,11 +138,27 @@ public class toDoListController extends Controller{
             String tegevuseKirjeldus = toDoListUusTegevusTextfield.getText();
             if (!tegevuseKirjeldus.equals("")) {
                 Other.Tegevus uusTegevus = new Other.Tegevus(tegevuseKirjeldus, false);
-                toDoList.lisaToDoListi(uusTegevus);
+                try {
+                    toDoList.lisaToDoListi(uusTegevus);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 toDoListTegevusedListview.getItems().add(uusTegevus.toString());
                 toDoListUusTegevusTextfield.setText("");
             }
+            try {
+                new FileOutputStream(ToDoList.randomToDoFail).close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                uuedTegevusedFaili(ToDoList.randomToDoFail);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
+
+
     }
 
     private void valitudTegevus() {
@@ -133,7 +179,7 @@ public class toDoListController extends Controller{
         }
     }
 
-    private void märgiTehtuksTegemata() {
+    private void märgiTehtuksTegemata() throws IOException {
         int valitudTegevus = toDoListTegevusedListview.getSelectionModel().getSelectedIndex();
         if (valitudTegevus == -1) { // ehk ei valitud mingit tegevust
             return;
@@ -147,6 +193,9 @@ public class toDoListController extends Controller{
         }
         tegevus.setTehtud(!tegevus.isTehtud());
         toDoListTegevusedListview.getItems().set(valitudTegevus, tegevus.toString());
+
+        new FileOutputStream(ToDoList.randomToDoFail).close();
+        uuedTegevusedFaili(ToDoList.randomToDoFail);
     }
 
     public void annaSuvalineTegevus() {
@@ -167,6 +216,16 @@ public class toDoListController extends Controller{
                 randomToDoSuvalineLabel.setText("Järgmisena tee: " + suvaline.getKirjeldus() +
                         "\n(kui soovid uut suvalist tegevust, vajuta randomToDo peale)");
             }
+        }
+    }
+
+    public void uuedTegevusedFaili(File fail) throws IOException {
+        List<String> tegevused = toDoListTegevusedListview.getItems();
+        try (PrintWriter pw = new PrintWriter(fail, StandardCharsets.UTF_8)) {
+            for (String s : tegevused) {
+                s = s.replace(":", "");
+                s = s.replace(";", "");
+                pw.write(s + "\n"); }
         }
     }
 }

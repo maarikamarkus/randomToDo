@@ -44,6 +44,9 @@ public class tegevusedController extends Controller {
 
     private ToDoList toDoList = ToDoList.getInstance();
 
+    public tegevusedController() throws IOException {
+    }
+
     @FXML
     void initialize() {
 

@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -19,6 +21,9 @@ public class suvalineTegevusController extends Controller {
     private TextField näitaTegevustText;
 
     private ToDoList toDoList = ToDoList.getInstance();
+
+    public suvalineTegevusController() throws IOException {
+    }
 
     @FXML
     void initialize() {

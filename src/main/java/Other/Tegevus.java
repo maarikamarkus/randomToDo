@@ -10,6 +10,8 @@ public class Tegevus {
         this.tehtud = tehtud;
     }
 
+    public Tegevus() {};
+
     public String getKirjeldus() {
         return kirjeldus;
     }

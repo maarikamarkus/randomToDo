@@ -1,5 +1,6 @@
 package Other;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Peaklass {
@@ -15,7 +16,7 @@ public class Peaklass {
         System.out.println("tegevuse nime muutmiseks: sisesta 6 ja vajuta ENTER");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         System.out.println();
         System.out.println("*******************************************");
