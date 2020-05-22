@@ -100,12 +100,12 @@ public class toDoListController extends Controller{
                 toDoListMuudaTextfield.setText("");
             }
             try {
-                new FileOutputStream(ToDoList.randomToDoFail).close();
+                new FileOutputStream(toDoList.getRandomToDoFail()).close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
-                uuedTegevusedFaili(ToDoList.randomToDoFail);
+                uuedTegevusedFaili(toDoList.getRandomToDoFail());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -118,12 +118,12 @@ public class toDoListController extends Controller{
                 toDoListTegevusedListview.getItems().remove(valitud);
             }
             try {
-                new FileOutputStream(ToDoList.randomToDoFail).close();
+                new FileOutputStream(toDoList.getRandomToDoFail()).close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
-                uuedTegevusedFaili(ToDoList.randomToDoFail);
+                uuedTegevusedFaili(toDoList.getRandomToDoFail());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -147,12 +147,12 @@ public class toDoListController extends Controller{
                 toDoListUusTegevusTextfield.setText("");
             }
             try {
-                new FileOutputStream(ToDoList.randomToDoFail).close();
+                new FileOutputStream(toDoList.getRandomToDoFail()).close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
-                uuedTegevusedFaili(ToDoList.randomToDoFail);
+                uuedTegevusedFaili(toDoList.getRandomToDoFail());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -194,8 +194,8 @@ public class toDoListController extends Controller{
         tegevus.setTehtud(!tegevus.isTehtud());
         toDoListTegevusedListview.getItems().set(valitudTegevus, tegevus.toString());
 
-        new FileOutputStream(ToDoList.randomToDoFail).close();
-        uuedTegevusedFaili(ToDoList.randomToDoFail);
+        new FileOutputStream(toDoList.getRandomToDoFail()).close();
+        uuedTegevusedFaili(toDoList.getRandomToDoFail());
     }
 
     public void annaSuvalineTegevus() {

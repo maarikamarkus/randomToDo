@@ -12,19 +12,19 @@ public class ToDoList {
 
     private List<Tegevus> toDoList = new ArrayList<>();
     private static ToDoList tegevused = null;
-    public static File randomToDoFail = new File(rajaLeidja()+"\\randomToDoFail.txt");
+    private File randomToDoFail = new File(rajaLeidja()+"\\randomToDoFail.txt");
 
     public ToDoList() {
     }
 
     //leiame programmi asukoha tee
-    private static String rajaLeidja() {
+    private String rajaLeidja() {
         Path praegune = Paths.get("");
         return praegune.toAbsolutePath().toString();
     }
 
     //lisame failis olevad tegevused to-do-listi või loome uue faili
-    private static void failistToDoListi() throws IOException {
+    private void failistToDoListi() throws IOException {
         if (randomToDoFail.exists()) {
             Scanner sc = new Scanner(randomToDoFail, StandardCharsets.UTF_8);
             while (sc.hasNextLine()) {
@@ -46,8 +46,12 @@ public class ToDoList {
 
     public static ToDoList getInstance() throws IOException { // nii pääseme toDoListile erinevatest controlleritest ligi
         tegevused = new ToDoList();
-        failistToDoListi();
+        tegevused.failistToDoListi();
         return tegevused;
+    }
+
+    public File getRandomToDoFail() {
+        return randomToDoFail;
     }
 
     public List<Tegevus> getToDoList() {
