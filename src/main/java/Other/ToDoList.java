@@ -2,8 +2,7 @@ package Other;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,41 +11,43 @@ public class ToDoList {
 
     private List<Tegevus> toDoList = new ArrayList<>();
     private static ToDoList tegevused = null;
-    private File randomToDoFail = new File(rajaLeidja()+"\\randomToDoFail.txt");
+    private File randomToDoFail = new File("randomToDoFail.txt", String.valueOf(StandardCharsets.UTF_8));
 
     public ToDoList() {
     }
 
+    /*
     //leiame programmi asukoha tee
     private String rajaLeidja() {
         Path praegune = Paths.get("");
         return praegune.toAbsolutePath().toString();
     }
+    */
 
     //lisame failis olevad tegevused to-do-listi või loome uue faili
-    private void failistToDoListi() throws IOException {
+    public void failistToDoListi() throws IOException {
         if (randomToDoFail.exists()) {
-            Scanner sc = new Scanner(randomToDoFail, StandardCharsets.UTF_8);
-            while (sc.hasNextLine()) {
-                String[] jupid = sc.nextLine().split(" ");
-                Tegevus uus = new Tegevus();
-                if (jupid[1].equals("true")) {
-                    uus = new Tegevus(jupid[0], true);
+            try (BufferedReader br = Files.newBufferedReader(randomToDoFail.toPath(), StandardCharsets.UTF_8)) {
+                String rida;
+                while ((rida = br.readLine()) != null) {
+                    String[] jupid = rida.split(" ");
+                    Tegevus uus = new Tegevus();
+                    if (jupid[1].equals("+") || jupid[1].equals("true")) {
+                        uus = new Tegevus(jupid[0], true);
+                    } else if (jupid[1].equals("-") || jupid[1].equals("false")) {
+                        uus = new Tegevus(jupid[0], false);
+                    }
+                    tegevused.lisaToDoListi(uus);
                 }
-                else if (jupid[1].equals("false")) {
-                    uus = new Tegevus(jupid[0], false);
-                }
-                tegevused.lisaToDoListi(uus);
             }
         }
         else {
-            randomToDoFail.createNewFile();
+            boolean x = randomToDoFail.createNewFile();
         }
     }
 
-    public static ToDoList getInstance() throws IOException { // nii pääseme toDoListile erinevatest controlleritest ligi
+    public static ToDoList getInstance() { // nii pääseme toDoListile erinevatest controlleritest ligi
         tegevused = new ToDoList();
-        tegevused.failistToDoListi();
         return tegevused;
     }
 
@@ -89,10 +90,7 @@ public class ToDoList {
         System.out.println("Lõpetasid tegevuste lisamise.");
     }
 
-    public void lisaToDoListi(Tegevus tegevus) throws IOException {
-        try (PrintWriter pw = new PrintWriter(randomToDoFail, StandardCharsets.UTF_8)) {
-            pw.write(tegevus.getKirjeldus() + " " + tegevus.isTehtud());
-        }
+    public void lisaToDoListi(Tegevus tegevus) {
         toDoList.add(tegevus);
     }
 

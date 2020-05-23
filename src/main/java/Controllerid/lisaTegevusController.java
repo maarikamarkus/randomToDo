@@ -32,9 +32,6 @@ public class lisaTegevusController extends Controller {
 
     private ToDoList toDoList = ToDoList.getInstance();
 
-    public lisaTegevusController() throws IOException {
-    }
-
     @FXML
     void initialize() {
         lisaTegevusLisaNupp.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -42,11 +39,7 @@ public class lisaTegevusController extends Controller {
             String tegevuseKirjeldus = lisaTegevusUusTegevusField.getText();
             if (!tegevuseKirjeldus.equals("")) {
                 Other.Tegevus uusTegevus = new Other.Tegevus(lisaTegevusUusTegevusField.getText(), false);
-                try {
-                    toDoList.lisaToDoListi(uusTegevus);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                toDoList.lisaToDoListi(uusTegevus);
             }
             //vahetaVaadet("/tegevused.fxml", lisaTegevusLisaNupp);
             vahetaVaadet("/toDoList.fxml", lisaTegevusLisaNupp);
