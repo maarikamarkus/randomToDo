@@ -130,16 +130,6 @@ public class toDoListController extends Controller{
                 toDoListUusTegevusTextfield.setText("");
             }
         });
-
-        /*Stage lava = (Stage) põhi.getScene().getWindow();
-        lava.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, windowEvent -> {
-            try {
-                uuedTegevusedFaili(fail);
-            } catch (IOException e) {
-                System.out.println("Faili kirjutamine ei õnnestunud.");;
-            }
-        }); //*/
-
     }
 
     private void valitudTegevus() {
@@ -196,15 +186,5 @@ public class toDoListController extends Controller{
                         "\n(kui soovid uut suvalist tegevust, vajuta randomToDo peale)");
             }
         }
-    }
-
-    public void uuedTegevusedFaili(File fail) throws IOException {
-        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fail)))) {
-            for (Tegevus t : toDoList.getToDoList()) {
-                bw.write(t.getKirjeldus() + " " + t.isTehtud());
-                bw.newLine();
-            }
-        }
-        System.out.println("Tegevused failis.");
     }
 }
