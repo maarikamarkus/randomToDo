@@ -63,7 +63,7 @@ public class toDoListController extends Controller{
 
     private ToDoList toDoList = ToDoList.getInstance();
 
-    private File fail = toDoList.getRandomToDoFail();
+    //private File fail = toDoList.getRandomToDoFail();
 
     @FXML
     void initialize() {

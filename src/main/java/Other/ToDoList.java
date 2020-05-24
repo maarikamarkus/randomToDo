@@ -11,7 +11,7 @@ public class ToDoList {
 
     private List<Tegevus> toDoList = new ArrayList<>();
     private static ToDoList tegevused = null;
-    private File randomToDoFail = new File("randomToDoFail.txt");
+    //private File randomToDoFail = new File("randomToDoFail.txt");
 
     public ToDoList() {
     }
@@ -26,7 +26,7 @@ public class ToDoList {
 
     //lisame failis olevad tegevused to-do-listi või loome uue faili
     public void failistToDoListi() throws IOException {
-        if (randomToDoFail.exists()) {
+        /*if (randomToDoFail.exists()) {
             try (BufferedReader br = Files.newBufferedReader(randomToDoFail.toPath(), StandardCharsets.UTF_8)) {
                 String rida = br.readLine();
                 while (rida != null) {
@@ -45,6 +45,21 @@ public class ToDoList {
         }
         else {
             boolean x = randomToDoFail.createNewFile();
+        } //*/
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("randomToDo.txt")))) {
+            String rida = br.readLine();
+            while (rida != null) {
+                String[] jupid = rida.split(" ");
+                Tegevus uus = new Tegevus();
+                if (jupid[1].equals("true")) {
+                    uus = new Tegevus(jupid[0], true);
+                } else if (jupid[1].equals("false")) {
+                    uus = new Tegevus(jupid[0], false);
+                }
+                if (uus.getKirjeldus() != null)
+                    tegevused.lisaToDoListi(uus);
+                rida = br.readLine();
+            }
         }
     }
 
@@ -54,9 +69,9 @@ public class ToDoList {
         return tegevused;
     }
 
-    public File getRandomToDoFail() {
+    /*public File getRandomToDoFail() {
         return randomToDoFail;
-    }
+    }//*/
 
     public List<Tegevus> getToDoList() {
         return toDoList;
