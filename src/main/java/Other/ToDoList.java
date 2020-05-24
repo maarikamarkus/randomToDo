@@ -49,7 +49,8 @@ public class ToDoList {
     }
 
     public static ToDoList getInstance() { // nii pääseme toDoListile erinevatest controlleritest ligi
-        tegevused = new ToDoList();
+        if (tegevused == null)
+            tegevused = new ToDoList();
         return tegevused;
     }
 

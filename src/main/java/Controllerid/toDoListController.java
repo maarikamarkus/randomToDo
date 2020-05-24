@@ -72,7 +72,7 @@ public class toDoListController extends Controller{
             toDoList.failistToDoListi();
         } catch (IOException e) {
             System.out.println("Failist lugemine ei õnnestunud.");
-        }
+        } //*/
 
         for (Tegevus tegevus : toDoList.getToDoList()) {
             toDoListTegevusedListview.getItems().add(tegevus.toString());
@@ -131,14 +131,14 @@ public class toDoListController extends Controller{
             }
         });
 
-        Stage lava = (Stage) põhi.getScene().getWindow();
-        lava.addEventHandler(WindowEvent.WINDOW_HIDDEN, windowEvent -> {
+        /*Stage lava = (Stage) põhi.getScene().getWindow();
+        lava.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, windowEvent -> {
             try {
                 uuedTegevusedFaili(fail);
             } catch (IOException e) {
-                System.out.println("Faili lugemine ei õnnestunud.");;
+                System.out.println("Faili kirjutamine ei õnnestunud.");;
             }
-        });
+        }); //*/
 
     }
 
@@ -205,5 +205,6 @@ public class toDoListController extends Controller{
                 bw.newLine();
             }
         }
+        System.out.println("Tegevused failis.");
     }
 }
