@@ -29,7 +29,7 @@ public class Main extends Application {
     public void stop() throws Exception {
         try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("randomToDo.txt")))) {
             for (Tegevus t : toDoList.getToDoList()) {
-                bw.write(t.getKirjeldus() + " " + t.isTehtud());
+                bw.write(t.getKirjeldus() + ";" + t.isTehtud());
                 bw.newLine();
             }
         } catch (IOException e) {

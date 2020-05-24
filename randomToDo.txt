@@ -1,1 +1,3 @@
-dhdfhg false
+projekti poster false
+õpi OOP eksamiks true
+saada tudengiprojektivõistluse failid false

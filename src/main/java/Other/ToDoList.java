@@ -29,7 +29,7 @@ public class ToDoList {
             try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fail)))) {
                 String rida = br.readLine();
                 while (rida != null) {
-                    String[] jupid = rida.split(" ");
+                    String[] jupid = rida.split(";");
                     Tegevus uus = new Tegevus();
                     if (jupid[1].equals("true")) {
                         uus = new Tegevus(jupid[0], true);
