@@ -1,3 +1,2 @@
-projekti poster false
-õpi OOP eksamiks true
-saada tudengiprojektivõistluse failid false
+uus tegevus;false
+teine tegevus;false
