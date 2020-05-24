@@ -11,41 +11,18 @@ public class ToDoList {
 
     private List<Tegevus> toDoList = new ArrayList<>();
     private static ToDoList tegevused = null;
-    //private File randomToDoFail = new File("randomToDoFail.txt");
 
     public ToDoList() {
     }
 
-    /*
-    //leiame programmi asukoha tee
-    private String rajaLeidja() {
-        Path praegune = Paths.get("");
-        return praegune.toAbsolutePath().toString();
+    public static ToDoList getInstance() { // nii pääseme toDoListile erinevatest controlleritest ligi
+        if (tegevused == null)
+            tegevused = new ToDoList();
+        return tegevused;
     }
-    */
 
     //lisame failis olevad tegevused to-do-listi või loome uue faili
     public void failistToDoListi() throws IOException {
-        /*if (randomToDoFail.exists()) {
-            try (BufferedReader br = Files.newBufferedReader(randomToDoFail.toPath(), StandardCharsets.UTF_8)) {
-                String rida = br.readLine();
-                while (rida != null) {
-                    String[] jupid = rida.split(" ");
-                    Tegevus uus = new Tegevus();
-                    if (jupid[1].equals("+") || jupid[1].equals("true")) {
-                        uus = new Tegevus(jupid[0], true);
-                    } else if (jupid[1].equals("-") || jupid[1].equals("false")) {
-                        uus = new Tegevus(jupid[0], false);
-                    }
-                    if (uus.getKirjeldus() != null)
-                        tegevused.lisaToDoListi(uus);
-                    rida = br.readLine();
-                }
-            }
-        }
-        else {
-            boolean x = randomToDoFail.createNewFile();
-        } //*/
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("randomToDo.txt")))) {
             String rida = br.readLine();
             while (rida != null) {
@@ -62,16 +39,6 @@ public class ToDoList {
             }
         }
     }
-
-    public static ToDoList getInstance() { // nii pääseme toDoListile erinevatest controlleritest ligi
-        if (tegevused == null)
-            tegevused = new ToDoList();
-        return tegevused;
-    }
-
-    /*public File getRandomToDoFail() {
-        return randomToDoFail;
-    }//*/
 
     public List<Tegevus> getToDoList() {
         return toDoList;

@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -29,7 +28,6 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("randomToDo.txt")))) {
-            //System.out.println("Kirjutan faili.");
             for (Tegevus t : toDoList.getToDoList()) {
                 bw.write(t.getKirjeldus() + " " + t.isTehtud());
                 bw.newLine();
@@ -37,7 +35,6 @@ public class Main extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //System.out.println("Tegevused failis.");
     }
 
     public static void main(String[] args) {
