@@ -3,6 +3,7 @@ package Other;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.rmi.server.ExportException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,20 +24,25 @@ public class ToDoList {
 
     //lisame failis olevad tegevused to-do-listi või loome uue faili
     public void failistToDoListi() throws IOException {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("randomToDo.txt")))) {
-            String rida = br.readLine();
-            while (rida != null) {
-                String[] jupid = rida.split(" ");
-                Tegevus uus = new Tegevus();
-                if (jupid[1].equals("true")) {
-                    uus = new Tegevus(jupid[0], true);
-                } else if (jupid[1].equals("false")) {
-                    uus = new Tegevus(jupid[0], false);
+        File fail = new File("randomToDo.txt");
+        if (fail.exists()) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fail)))) {
+                String rida = br.readLine();
+                while (rida != null) {
+                    String[] jupid = rida.split(" ");
+                    Tegevus uus = new Tegevus();
+                    if (jupid[1].equals("true")) {
+                        uus = new Tegevus(jupid[0], true);
+                    } else if (jupid[1].equals("false")) {
+                        uus = new Tegevus(jupid[0], false);
+                    }
+                    if (uus.getKirjeldus() != null)
+                        tegevused.lisaToDoListi(uus);
+                    rida = br.readLine();
                 }
-                if (uus.getKirjeldus() != null)
-                    tegevused.lisaToDoListi(uus);
-                rida = br.readLine();
             }
+        } else {
+            return;
         }
     }
 
@@ -46,10 +52,12 @@ public class ToDoList {
 
     public void kuvaSissekanded(List<Tegevus> toDoList) {
         int i = 0;
+        System.out.println("-----------------------------");
         for (Tegevus tegevus : toDoList) {
             System.out.println(i+1 + ". sissekanne on " + tegevus);
             i++;
         }
+        System.out.println("-----------------------------");
     }
 
     public int tegevusiListis(List<Tegevus> toDoList) {
@@ -105,9 +113,12 @@ public class ToDoList {
         if (tegevusiListis(toDoList) == 0) {
             System.out.println("Sisesta enne mõned tegevused listi.");
         } else {
+            System.out.println("-----------------------------");
+
             for (Tegevus tegevus : toDoList) {
                 System.out.println(tegevus);
             }
+            System.out.println("-----------------------------");
         }
     }
 
