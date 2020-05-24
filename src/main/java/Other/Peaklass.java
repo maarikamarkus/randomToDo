@@ -1,6 +1,9 @@
 package Other;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 public class Peaklass {
@@ -16,6 +19,18 @@ public class Peaklass {
         System.out.println("tegevuse nime muutmiseks: sisesta 6 ja vajuta ENTER");
     }
 
+
+    private static void kirjutaFaili() {
+        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("randomToDo.txt")))) {
+            for (Tegevus t : ToDoList.getInstance().getToDoList()) {
+                bw.write(t.getKirjeldus() + " " + t.isTehtud());
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) throws IOException {
 
         System.out.println();
@@ -28,6 +43,8 @@ public class Peaklass {
         System.out.println();
 
         ToDoList isend = ToDoList.getInstance();
+        isend.failistToDoListi();
+
 
         while (true) {
             Scanner scanner = new Scanner(System.in);
@@ -36,6 +53,7 @@ public class Peaklass {
             String sisend = scanner.nextLine();
             if (sisend.equals("")) {
                 System.out.println("Programm lõpetas töö.");
+                kirjutaFaili();
                 break;
             } else if (sisend.equals("jah")) {
                 kuvaJuhtnöörid();
