@@ -2,6 +2,8 @@ package Controllerid;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -14,6 +16,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class toDoListController extends Controller{
 
@@ -53,12 +58,15 @@ public class toDoListController extends Controller{
     @FXML
     private Label toDoListRandomToDoLabel;
 
+    @FXML
+    private BorderPane põhi;
+
     private ToDoList toDoList = ToDoList.getInstance();
 
     private File fail = toDoList.getRandomToDoFail();
 
     @FXML
-    void initialize() throws IOException {
+    void initialize() {
 
         try {
             toDoList.failistToDoListi();
@@ -123,7 +131,14 @@ public class toDoListController extends Controller{
             }
         });
 
-        
+        Stage lava = (Stage) põhi.getScene().getWindow();
+        lava.addEventHandler(WindowEvent.WINDOW_HIDDEN, windowEvent -> {
+            try {
+                uuedTegevusedFaili(fail);
+            } catch (IOException e) {
+                System.out.println("Faili lugemine ei õnnestunud.");;
+            }
+        });
 
     }
 

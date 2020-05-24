@@ -11,7 +11,7 @@ public class ToDoList {
 
     private List<Tegevus> toDoList = new ArrayList<>();
     private static ToDoList tegevused = null;
-    private File randomToDoFail = new File("randomToDoFail.txt", String.valueOf(StandardCharsets.UTF_8));
+    private File randomToDoFail = new File("randomToDoFail.txt");
 
     public ToDoList() {
     }
@@ -28,8 +28,8 @@ public class ToDoList {
     public void failistToDoListi() throws IOException {
         if (randomToDoFail.exists()) {
             try (BufferedReader br = Files.newBufferedReader(randomToDoFail.toPath(), StandardCharsets.UTF_8)) {
-                String rida;
-                while ((rida = br.readLine()) != null) {
+                String rida = br.readLine();
+                while (rida != null) {
                     String[] jupid = rida.split(" ");
                     Tegevus uus = new Tegevus();
                     if (jupid[1].equals("+") || jupid[1].equals("true")) {
@@ -37,7 +37,9 @@ public class ToDoList {
                     } else if (jupid[1].equals("-") || jupid[1].equals("false")) {
                         uus = new Tegevus(jupid[0], false);
                     }
-                    tegevused.lisaToDoListi(uus);
+                    if (uus.getKirjeldus() != null)
+                        tegevused.lisaToDoListi(uus);
+                    rida = br.readLine();
                 }
             }
         }
