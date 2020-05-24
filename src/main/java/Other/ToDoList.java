@@ -92,9 +92,11 @@ public class ToDoList {
             System.out.println("Sul ei ole tegevusi, mida kustutada.");
         } else {
             kuvaSissekanded(toDoList);
-            System.out.println("Sisesta täisarvuna, mitmenda tegevuse kustutada tahad.");
+            System.out.println("Sisesta täisarvuna, mitmenda tegevuse kustutada tahad. Väljumiseks vajuta ENTER.");
             Scanner scanner = new Scanner(System.in);
             String sisend = scanner.nextLine();
+            if (sisend.equals(""))
+                return;
             int number = Integer.valueOf(sisend);
             System.out.println("Soovid kustutada tegevuse: " + toDoList.get(number-1));
             System.out.println("Vajuta ENTER, kui see on õige kirje, ja kirjuta 'lõpeta', kui soovid tegevust lõpetada.");
