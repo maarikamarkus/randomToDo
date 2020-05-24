@@ -23,7 +23,7 @@ public class Peaklass {
     private static void kirjutaFaili() {
         try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("randomToDo.txt")))) {
             for (Tegevus t : ToDoList.getInstance().getToDoList()) {
-                bw.write(t.getKirjeldus() + " " + t.isTehtud());
+                bw.write(t.getKirjeldus() + ";" + t.isTehtud());
                 bw.newLine();
             }
         } catch (IOException e) {
